@@ -1,0 +1,1 @@
+export { CropIntelligence } from "./CropIntelligence";
