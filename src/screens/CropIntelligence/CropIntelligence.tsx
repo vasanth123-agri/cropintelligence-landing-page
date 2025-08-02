@@ -10,6 +10,7 @@ import { KnowledgeBaseSection } from "./sections/KnowledgeBaseSection";
 import { NavigationSection } from "./sections/NavigationSection";
 import { NextStepsSection } from "./sections/NextStepsSection";
 import thickline from "../../assets/thickline.svg";
+import farmer from "../../../../assets/farmerone.svg"
 export const CropIntelligence = (): JSX.Element => {
   // Data for the announcement ticker
   const announcements = [
@@ -26,12 +27,12 @@ export const CropIntelligence = (): JSX.Element => {
     <div className="bg-transparent flex flex-row justify-center w-full">
       <div className="overflow-hidden w-full max-w-[1440px] relative">
         {/* Announcement Ticker */}
-        <div className="w-full h-[42px] bg-[#2a8158] overflow-hidden">
-          <div className="flex items-center gap-10 py-[9px] px-4 animate-marquee">
+        <div className="w-full h-[36px] sm:h-[40px] lg:h-[42px] bg-[#2a8158] overflow-hidden">
+          <div className="flex items-center gap-6 sm:gap-8 lg:gap-10 py-[6px] sm:py-[8px] lg:py-[9px] px-4 animate-marquee">
             {announcements.map((announcement, index) => (
               <div
                 key={`announcement-${index}`}
-                className="text-white text-base leading-6 whitespace-nowrap font-['Open_Sans',Helvetica] font-normal"
+                className="text-white text-sm sm:text-base leading-5 sm:leading-6 whitespace-nowrap font-['Open_Sans',Helvetica] font-normal"
               >
                 {announcement}
               </div>
@@ -40,31 +41,31 @@ export const CropIntelligence = (): JSX.Element => {
         </div>
 
         {/* Contact Bar */}
-        <div className="w-full h-[57px] bg-[#006837]">
-          <div className="container mx-auto h-full flex justify-between items-center">
-            <div className="flex items-center gap-8">
+        <div className="w-full h-[48px] sm:h-[52px] lg:h-[57px] bg-[#006837]">
+          <div className="container mx-auto h-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 gap-2 sm:gap-0">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 lg:gap-8">
               <div className="flex items-center gap-2">
-                <PhoneIcon className="w-4 h-4 text-[#e8f5e9]" />
-                <span className="font-['Open_Sans',Helvetica] font-normal text-white text-base leading-6">
+                <PhoneIcon className="w-3 h-3 sm:w-4 sm:h-4 text-[#e8f5e9]" />
+                <span className="font-['Open_Sans',Helvetica] font-normal text-white text-sm sm:text-base leading-5 sm:leading-6">
                   +91 63696 42480
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <MailIcon className="w-4 h-4 text-[#e8f5e9]" />
-                <span className="font-['Open_Sans',Helvetica] font-normal text-white text-base leading-6">
+                <MailIcon className="w-3 h-3 sm:w-4 sm:h-4 text-[#e8f5e9]" />
+                <span className="font-['Open_Sans',Helvetica] font-normal text-white text-xs sm:text-sm lg:text-base leading-4 sm:leading-5 lg:leading-6">
                   agriinversefarm@gmail.com
                 </span>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="font-['Open_Sans',Helvetica] font-normal text-[#e8f5e9] text-base leading-6">
+            <div className="hidden sm:flex items-center gap-2">
+              <span className="font-['Open_Sans',Helvetica] font-normal text-[#e8f5e9] text-sm lg:text-base leading-5 lg:leading-6">
                 Follow Us:
               </span>
-              <div className="w-10 h-[38px] rounded flex items-center justify-center">
-                <FacebookIcon className="w-3.5 h-4 text-[#e8f5e9]" />
+              <div className="w-8 h-8 lg:w-10 lg:h-[38px] rounded flex items-center justify-center">
+                <FacebookIcon className="w-3 h-3 lg:w-3.5 lg:h-4 text-[#e8f5e9]" />
               </div>
-              <div className="w-10 h-[38px] rounded flex items-center justify-center">
-                <TwitterIcon className="w-3.5 h-4 text-[#e8f5e9]" />
+              <div className="w-8 h-8 lg:w-10 lg:h-[38px] rounded flex items-center justify-center">
+                <TwitterIcon className="w-3 h-3 lg:w-3.5 lg:h-4 text-[#e8f5e9]" />
               </div>
             </div>
           </div>
@@ -74,42 +75,54 @@ export const CropIntelligence = (): JSX.Element => {
         <NavigationSection />
 
         {/* Feature Highlight Section */}
-        <FeatureHighlightSection />
-
-        {/* Divider */}
-       
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <FeatureHighlightSection />
+        </div>
 
         {/* Knowledge Base Section */}
-        <KnowledgeBaseSection />
-         <img className="w-full h-[84px]" alt="Frame" src={thickline} />
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <KnowledgeBaseSection />
+        </div>
+        
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <img className="w-full h-[84px]" alt="Frame" src={thickline} />
+        </div>
 
         {/* Feature Wrapper Section */}
-        <FeatureWrapperSection />
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <FeatureWrapperSection />
+        </div>
 
         {/* Content Wrapper Section */}
-        <ContentWrapperSection />
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <ContentWrapperSection />
+        </div>
 
         {/* Next Steps Section with Background */}
-        <div className="relative w-full">
+        <div className="relative w-full mb-8 sm:mb-12 lg:mb-0">
           <div className="absolute w-[466px] h-[466px] top-[472px] left-0 bg-[#0068378c] rounded-[233px] blur-[525px]" />
           <NextStepsSection />
         </div>
 
         {/* Next Steps Heading */}
-        <div className="w-full text-center mt-16 mb-2">
-          <h2 className="font-['Jost',Helvetica] font-medium text-black text-4xl leading-[56px]">
+        <div className="w-full text-center mt-8 sm:mt-12 lg:mt-16 mb-2">
+          <h2 className="font-['Jost',Helvetica] font-medium text-black text-2xl sm:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
             Your Next Step
           </h2>
-          <p className="font-['Jost',Helvetica] font-medium italic text-[#6d6d6d] text-2xl leading-[56px]">
+          <p className="font-['Jost',Helvetica] font-medium italic text-[#6d6d6d] text-lg sm:text-xl lg:text-2xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
             Join group of farmers already using smart timing to increase profits
           </p>
         </div>
 
         {/* Info Section */}
-        <InfoSection />
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <InfoSection />
+        </div>
 
         {/* Call To Action Section */}
-        <CallToActionSection />
+        <div className="mb-8 sm:mb-12 lg:mb-0">
+          <CallToActionSection />
+        </div>
 
         {/* Background Section */}
         <BackgroundSection />

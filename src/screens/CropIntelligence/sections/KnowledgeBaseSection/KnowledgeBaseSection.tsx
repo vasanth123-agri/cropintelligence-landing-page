@@ -4,10 +4,10 @@ import { Card, CardContent } from "../../../../components/ui/card";
 
 export const KnowledgeBaseSection = (): JSX.Element => {
   return (
-    <section className="w-full py-20 bg-[#fbfbfb]">
-      <Card className="max-w-[1064px] mx-auto border-none bg-transparent">
+    <section className="w-full py-12 sm:py-16 lg:py-20 bg-[#fbfbfb] px-4">
+      <Card className="max-w-[95%] sm:max-w-[90%] lg:max-w-[1064px] mx-auto border-none bg-transparent">
         <CardContent className="p-0">
-          <p className="font-['Open_Sans',Helvetica] text-4xl leading-[56px] tracking-[0]">
+          <p className="font-['Open_Sans',Helvetica] text-sm sm:text-base md:text-xl lg:text-4xl leading-[1.3] sm:leading-[1.4] md:leading-[1.5] lg:leading-[56px] tracking-[0]">
             <span className="text-[#331818]">
               You already know what to give your crops — we help you{" "}
             </span>

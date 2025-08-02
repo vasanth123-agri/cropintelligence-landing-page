@@ -33,43 +33,43 @@ export const NextStepsSection = (): JSX.Element => {
   return (
     <section className="w-full bg-white">
       <div 
-        className="h-[949px] bg-cover bg-[50%_50%]"
+        className="min-h-[600px] sm:min-h-[700px] lg:h-[949px] bg-cover bg-center px-4 sm:px-6 lg:px-0"
         style={{
           backgroundImage: `url(${bg})`
         }}
       >
-        <div className="relative w-full max-w-[1152px] h-[754px] mx-auto mt-[98px] rounded-[22px] overflow-hidden">
-          <div className="relative h-[740px] bg-[#fffffff5] rounded-xl backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)]">
+        <div className="relative w-full max-w-[95%] sm:max-w-[90%] lg:max-w-[1152px] min-h-[550px] sm:min-h-[650px] lg:h-[754px] mx-auto pt-8 sm:pt-12 lg:mt-[98px] rounded-[16px] sm:rounded-[20px] lg:rounded-[22px] overflow-hidden">
+          <div className="relative min-h-[540px] sm:min-h-[640px] lg:h-[740px] bg-[#fffffff5] rounded-lg sm:rounded-xl backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] p-4 sm:p-6 lg:p-0">
             {/* Heading */}
-            <div className="text-center pt-[49px]">
-              <h2 className="[font-family:'Jost',Helvetica] font-medium text-4xl tracking-[0] leading-[56px]">
+            <div className="text-center pt-6 sm:pt-8 lg:pt-[49px] px-2 sm:px-4 lg:px-0">
+              <h2 className="[font-family:'Jost',Helvetica] font-medium text-xl sm:text-2xl md:text-3xl lg:text-4xl tracking-[0] leading-[1.4] sm:leading-[1.5] lg:leading-[56px]">
                 <span className="text-[#2c2c2c]">How Our Device Drives</span>
                 <span className="text-[#006837]"> Efficiency &amp; Yield</span>
               </h2>
 
-              <p className="[font-family:'Jost',Helvetica] font-medium italic text-[#6d6d6d] text-2xl tracking-[0] leading-[56px] mt-0">
+              <p className="[font-family:'Jost',Helvetica] font-medium italic text-[#6d6d6d] text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0] leading-[1.4] sm:leading-[1.5] lg:leading-[56px] mt-2 lg:mt-0">
                 Powered by Data. Proven by Results.
               </p>
             </div>
 
-            <div className="flex flex-row justify-between px-11 mt-[42px]">
+            <div className="flex flex-col lg:flex-row lg:justify-between lg:px-11 mt-6 sm:mt-8 lg:mt-[42px] gap-6 lg:gap-8">
               {/* Left column with feature cards */}
-              <div className="flex flex-col gap-6 w-[542px]">
+              <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 w-full lg:w-[542px]">
                 {featureCards.map((card, index) => (
                   <Card
                     key={index}
-                    className="w-full h-[114px] bg-white rounded-lg border border-solid border-green-100 shadow-[0px_1px_2px_#0000000d]"
+                    className="w-full h-[90px] sm:h-[100px] lg:h-[114px] bg-white rounded-lg border border-solid border-green-100 shadow-[0px_1px_2px_#0000000d]"
                   >
                     <CardContent className="p-0 relative h-full">
                       <img
-                        className="absolute w-14 h-14 top-[29px] left-[21px]"
+                        className="absolute w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 top-[20px] sm:top-[25px] lg:top-[29px] left-[15px] sm:left-[18px] lg:left-[21px]"
                         alt="Feature icon"
                         src={card.icon}
                       />
-                      <div className="absolute w-[113px] h-7 top-7 left-[93px] [font-family:'Open_Sans',Helvetica] font-bold text-gray-800 text-[22px] tracking-[0] leading-7 whitespace-nowrap">
+                      <div className="absolute top-[18px] sm:top-[22px] lg:top-7 left-[65px] sm:left-[75px] lg:left-[93px] [font-family:'Open_Sans',Helvetica] font-bold text-gray-800 text-base sm:text-lg lg:text-[22px] tracking-[0] leading-6 lg:leading-7 whitespace-nowrap">
                         {card.title}
                       </div>
-                      <div className="absolute h-6 top-[60px] left-[93px] [font-family:'Open_Sans',Helvetica] font-normal text-gray-600 text-lg tracking-[0] leading-6 whitespace-nowrap">
+                      <div className="absolute top-[45px] sm:top-[52px] lg:top-[60px] left-[65px] sm:left-[75px] lg:left-[93px] [font-family:'Open_Sans',Helvetica] font-normal text-gray-600 text-xs sm:text-sm lg:text-lg tracking-[0] leading-5 lg:leading-6">
                         {card.title === "Sensors" && (
                           <>
                             <span>With </span>
@@ -93,12 +93,12 @@ export const NextStepsSection = (): JSX.Element => {
                         )}
                       </div>
                       <div
-                        className={`absolute h-[65px] top-6 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0f0f0f1c] text-5xl tracking-[0] leading-[normal] ${
+                        className={`absolute top-4 sm:top-5 lg:top-6 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0f0f0f1c] text-2xl sm:text-3xl lg:text-5xl tracking-[0] leading-[normal] ${
                           card.number === "10+"
-                            ? "left-[439px]"
+                            ? "right-[15px] sm:right-[20px] lg:right-[63px]"
                             : card.number === "150+"
-                              ? "left-[412px]"
-                              : "left-[420px]"
+                              ? "right-[10px] sm:right-[15px] lg:right-[90px]"
+                              : "right-[12px] sm:right-[17px] lg:right-[82px]"
                         }`}
                       >
                         {card.number}
@@ -108,13 +108,13 @@ export const NextStepsSection = (): JSX.Element => {
                 ))}
 
                 {/* Call to action button */}
-                <Button className="w-full h-[58px] mt-6 bg-[#006837] text-white rounded-lg hover:bg-[#005a2f]">
-                  <div className="flex items-center justify-center gap-[19px] w-full">
-                    <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-base text-center tracking-[0] leading-5 whitespace-nowrap">
+                <Button className="w-full h-[48px] sm:h-[52px] lg:h-[58px] mt-4 sm:mt-5 lg:mt-6 bg-[#006837] text-white rounded-lg hover:bg-[#005a2f]">
+                  <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-[19px] w-full">
+                    <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-sm sm:text-base text-center tracking-[0] leading-5 whitespace-nowrap">
                       See What We Monitor
                     </span>
                     <img
-                      className="w-[34px] h-[34px]"
+                      className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] lg:w-[34px] lg:h-[34px]"
                       alt="Play"
                       src={playIcon}
                     />
@@ -124,7 +124,7 @@ export const NextStepsSection = (): JSX.Element => {
 
               {/* Right column with image */}
               <div 
-                className="w-[447px] h-[390px] bg-[#d9d9d9] rounded-lg bg-cover bg-center" 
+                className="w-full lg:w-[447px] h-[280px] sm:h-[320px] lg:h-[390px] bg-[#d9d9d9] rounded-lg bg-cover bg-center mx-auto lg:mx-0" 
                 style={{
                   backgroundImage: `url(${header})`
                 }}
@@ -133,7 +133,7 @@ export const NextStepsSection = (): JSX.Element => {
             </div>
 
             {/* Footer text */}
-            <div className="absolute h-[72px] bottom-[59px] left-[661px] [font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-2xl text-center tracking-[0] leading-9">
+            <div className="text-center lg:absolute lg:h-[72px] lg:bottom-[59px] lg:left-[661px] [font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-base sm:text-lg lg:text-2xl text-center tracking-[0] leading-6 sm:leading-7 lg:leading-9 mt-6 lg:mt-0 px-4 lg:px-0">
               We helping you boost yields, reduce inputs
               <br />
               and grow smarter.

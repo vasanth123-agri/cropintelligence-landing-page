@@ -57,27 +57,27 @@ export const ContentWrapperSection = (): JSX.Element => {
   const payslipSuggestions = ["Download Payslip", "View Detailed Breakdown"];
 
   return (
-    <section className="relative w-full py-16 px-20 bg-[#006837] rounded-[30px] overflow-hidden">
-      <h2 className="text-4xl font-medium text-white text-center mb-12 font-['Jost',Helvetica]">
+    <section className="relative w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white text-center mb-8 sm:mb-10 lg:mb-12 font-['Jost',Helvetica]">
         Your Personal Farm Assistant
       </h2>
 
-      <div className="flex flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
         {/* Left side - Features */}
-        <div className="flex flex-col space-y-12 w-1/2">
+        <div className="flex flex-col space-y-8 sm:space-y-10 lg:space-y-12 w-full lg:w-1/2">
           {features.map((feature, index) => (
             <div key={index} className="flex flex-col">
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <img
-                  className="w-8 h-8"
+                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8"
                   alt="Feature icon"
                   src={feature.icon}
                 />
-                <h3 className="font-bold text-white text-[22px] leading-7 font-['Open_Sans',Helvetica]">
+                <h3 className="font-bold text-white text-lg sm:text-xl lg:text-[22px] leading-6 sm:leading-7 font-['Open_Sans',Helvetica]">
                   {feature.title}
                 </h3>
               </div>
-              <p className="ml-12 mt-3 text-[#e9e9e9] text-lg leading-7 font-['Open_Sans',Helvetica] font-normal">
+              <p className="ml-9 sm:ml-11 lg:ml-12 mt-2 sm:mt-3 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
                 {feature.description}
               </p>
             </div>
@@ -85,14 +85,14 @@ export const ContentWrapperSection = (): JSX.Element => {
 
           <Button
             variant="default"
-            className="flex items-center gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-5 py-4 mt-8"
+            className="flex items-center gap-3 sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-4 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
           >
-            <span className="font-semibold text-base font-['Open_Sans',Helvetica]">
+            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]">
               See How Farmers Use the AI Chatbot
             </span>
-            <div className="flex w-[34px] h-[34px] items-center justify-center bg-[#006837] rounded-[17px]">
+            <div className="flex w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] lg:w-[34px] lg:h-[34px] items-center justify-center bg-[#006837] rounded-[14px] sm:rounded-[15px] lg:rounded-[17px]">
               <img
-                className="w-[11px] h-[12.4px]"
+                className="w-[9px] h-[10px] sm:w-[10px] sm:h-[11px] lg:w-[11px] lg:h-[12.4px]"
                 alt="Play button"
                 src={play}
               />
@@ -101,22 +101,22 @@ export const ContentWrapperSection = (): JSX.Element => {
         </div>
 
         {/* Right side - Chat interface */}
-        <Card className="w-[558px] h-[480px] bg-[#f1f4f3] rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden">
+        <Card className="w-full lg:w-[558px] h-[400px] sm:h-[440px] lg:h-[480px] bg-[#f1f4f3] rounded-xl lg:rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden mx-auto lg:mx-0">
           <CardContent className="p-0 h-full">
             {/* Chat header */}
-            <div className="w-full h-[69px] bg-[#e7f2ee] flex items-center">
-              <div className="relative w-[506px] h-[37px] top-4 left-6">
-                <img src = {chatlogo}/>
+            <div className="w-full h-[60px] sm:h-[65px] lg:h-[69px] bg-[#e7f2ee] flex items-center px-4 sm:px-6">
+              <div className="relative flex-1 h-[30px] sm:h-[35px] lg:h-[37px]">
+                <img src = {chatlogo} className="h-full object-contain"/>
               </div>
-              <div className = "inline-flex">
-                <img src={chatmail} alt="" />
-                <img src={chatprofile} alt="" />
+              <div className="flex gap-2 sm:gap-3">
+                <img src={chatmail} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
+                <img src={chatprofile} alt="" className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
             </div>
 
             {/* Chat content */}
-            <ScrollArea className="h-[411px]">
-              <div className="p-6">
+            <ScrollArea className="h-[340px] sm:h-[375px] lg:h-[411px]">
+              <div className="p-3 sm:p-4 lg:p-6">
                 {/* Bot intro */}
                 <div className="flex items-center gap-[17.87px] mb-6">
                   <img
@@ -349,15 +349,15 @@ export const ContentWrapperSection = (): JSX.Element => {
             </ScrollArea>
 
             {/* Chat input */}
-            <div className="w-full h-[71px] bg-[#f1f4f3] border-t-[0.74px] border-[#dce4e2] shadow-[inset_0px_1.49px_1.49px_#0000000d] p-[15px]">
-              <div className="flex items-center gap-6">
-                <div className="flex-1 h-[42px] bg-[#dce4e2] rounded-[5.96px] px-[15px] flex items-center">
-                  <span className="font-['Urbanist',Helvetica] font-medium text-[#7d7d7d] text-[14.9px]">
+            <div className="w-full h-[60px] sm:h-[65px] lg:h-[71px] bg-[#f1f4f3] border-t-[0.74px] border-[#dce4e2] shadow-[inset_0px_1.49px_1.49px_#0000000d] p-3 sm:p-4 lg:p-[15px]">
+              <div className="flex items-center gap-3 sm:gap-4 lg:gap-6">
+                <div className="flex-1 h-[36px] sm:h-[38px] lg:h-[42px] bg-[#dce4e2] rounded-[5px] sm:rounded-[5.5px] lg:rounded-[5.96px] px-3 sm:px-4 lg:px-[15px] flex items-center">
+                  <span className="font-['Urbanist',Helvetica] font-medium text-[#7d7d7d] text-xs sm:text-sm lg:text-[14.9px]">
                     Hello there 👋!
                   </span>
                 </div>
                 <img
-                  className="w-[42px] h-[42px]"
+                  className="w-[36px] h-[36px] sm:w-[38px] sm:h-[38px] lg:w-[42px] lg:h-[42px]"
                   alt="Send button"
                   src="/group-1410084470.png"
                 />
