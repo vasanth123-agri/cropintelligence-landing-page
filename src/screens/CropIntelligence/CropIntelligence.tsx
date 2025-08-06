@@ -1,5 +1,5 @@
 import { FacebookIcon, MailIcon, PhoneIcon, TwitterIcon } from "lucide-react";
-import React from "react";
+
 import { BackgroundSection } from "./sections/BackgroundSection";
 import { CallToActionSection } from "./sections/CallToActionSection";
 import { ContentWrapperSection } from "./sections/ContentWrapperSection";
@@ -10,35 +10,16 @@ import { KnowledgeBaseSection } from "./sections/KnowledgeBaseSection";
 import { NavigationSection } from "./sections/NavigationSection";
 import { NextStepsSection } from "./sections/NextStepsSection";
 import thickline from "../../assets/thickline.svg";
-import farmer from "../../../../assets/farmerone.svg"
+
 export const CropIntelligence = (): JSX.Element => {
   // Data for the announcement ticker
-  const announcements = [
-    "Join our 1-Day Indoor Farming Course on Jan 15!",
-    "🌱",
-    "WhatsApp +91 63696 42480 for details.",
-    "🌱",
-    "Join our 1-Day Indoor Farming Course on Jan 15!",
-    "🌱",
-    "WhatsApp +91 63696 42480 for details.",
-  ];
+  
 
   return (
     <div className="bg-transparent flex flex-row justify-center w-full">
       <div className="overflow-hidden w-full max-w-[1440px] relative">
         {/* Announcement Ticker */}
-        <div className="w-full h-[36px] sm:h-[40px] lg:h-[42px] bg-[#2a8158] overflow-hidden">
-          <div className="flex items-center gap-6 sm:gap-8 lg:gap-10 py-[6px] sm:py-[8px] lg:py-[9px] px-4 animate-marquee">
-            {announcements.map((announcement, index) => (
-              <div
-                key={`announcement-${index}`}
-                className="text-white text-sm sm:text-base leading-5 sm:leading-6 whitespace-nowrap font-['Open_Sans',Helvetica] font-normal"
-              >
-                {announcement}
-              </div>
-            ))}
-          </div>
-        </div>
+        
 
         {/* Contact Bar */}
         <div className="w-full h-[48px] sm:h-[52px] lg:h-[57px] bg-[#006837]">
@@ -105,7 +86,7 @@ export const CropIntelligence = (): JSX.Element => {
         </div>
 
         {/* Next Steps Heading */}
-        <div className="w-full text-center mt-8 sm:mt-12 lg:mt-16 mb-2">
+        <div className="w-full text-center pt- sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
           <h2 className="font-['Jost',Helvetica] font-medium text-black text-2xl sm:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
             Your Next Step
           </h2>
@@ -115,12 +96,12 @@ export const CropIntelligence = (): JSX.Element => {
         </div>
 
         {/* Info Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
+        <div className="mb-8 sm:mb-12 lg:mb-16">
           <InfoSection />
         </div>
 
         {/* Call To Action Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
+        <div className="mb-8 sm:mb-12 lg:mb-0 flex justify-center items-center">
           <CallToActionSection />
         </div>
 

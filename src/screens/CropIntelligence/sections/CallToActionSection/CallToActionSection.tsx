@@ -1,11 +1,11 @@
-import React from "react";
+
 import { Badge } from "../../../../components/ui/badge";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 
 export const CallToActionSection = (): JSX.Element => {
   return (
-    <Card className="w-full rounded-xl overflow-hidden border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white">
+    <Card className="max-w-[1280px] rounded-xl overflow-hidden border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white">
       <CardContent className="flex flex-col items-center justify-center py-14 px-6">
         <h2 className="text-[40px] font-bold text-[#006837] text-center leading-[58px] [font-family:'Jost',Helvetica] mb-3">
           Don&apos;t leave your farm&apos;s success to guesswork,

@@ -4,8 +4,9 @@ import bg from "../../../../assets/bg.svg";
 import iconfour from "../../../../assets/iconfour.svg";
 import iconfive from "../../../../assets/Iconfive.svg";
 import iconsix from "../../../../assets/iconsix.svg";
-import header from "../../../../assets/header.svg";
-import playIcon from "../../../../assets/Play.svg";
+
+import monitor from "../../../../assets/monitor.svg"
+import device from "../../../../assets/device.gif"
 
 export const NextStepsSection = (): JSX.Element => {
   // Data for feature cards
@@ -38,7 +39,7 @@ export const NextStepsSection = (): JSX.Element => {
           backgroundImage: `url(${bg})`
         }}
       >
-        <div className="relative w-full max-w-[95%] sm:max-w-[90%] lg:max-w-[1152px] min-h-[550px] sm:min-h-[650px] lg:h-[754px] mx-auto pt-8 sm:pt-12 lg:mt-[98px] rounded-[16px] sm:rounded-[20px] lg:rounded-[22px] overflow-hidden">
+        <div className="relative w-full max-w-[95%] sm:max-w-[846px] lg:max-w-[1152px] min-h-[243px] sm:min-h-[650px] lg:h-[754px] mx-auto pt-8 sm:pt-12 lg:mt-[98px] rounded-[16px] sm:rounded-[20px] lg:rounded-[22px] overflow-hidden">
           <div className="relative min-h-[540px] sm:min-h-[640px] lg:h-[740px] bg-[#fffffff5] rounded-lg sm:rounded-xl backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] p-4 sm:p-6 lg:p-0">
             {/* Heading */}
             <div className="text-center pt-6 sm:pt-8 lg:pt-[49px] px-2 sm:px-4 lg:px-0">
@@ -62,7 +63,7 @@ export const NextStepsSection = (): JSX.Element => {
                   >
                     <CardContent className="p-0 relative h-full">
                       <img
-                        className="absolute w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14 top-[20px] sm:top-[25px] lg:top-[29px] left-[15px] sm:left-[18px] lg:left-[21px]"
+                        className="absolute w-[263px] h-[243px] sm:w-12 sm:h-12 lg:w-14 lg:h-14 top-[20px] sm:top-[25px] lg:top-[29px] left-[15px] sm:left-[18px] lg:left-[21px]"
                         alt="Feature icon"
                         src={card.icon}
                       />
@@ -93,12 +94,12 @@ export const NextStepsSection = (): JSX.Element => {
                         )}
                       </div>
                       <div
-                        className={`absolute top-4 sm:top-5 lg:top-6 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0f0f0f1c] text-2xl sm:text-3xl lg:text-5xl tracking-[0] leading-[normal] ${
+                        className={`absolute bottom-4 sm:bottom-5 lg:bottom-6 [font-family:'Open_Sans',Helvetica] font-semibold text-[#0f0f0f1c] text-2xl sm:text-3xl lg:text-5xl tracking-[0] leading-[normal] ${
                           card.number === "10+"
-                            ? "right-[15px] sm:right-[20px] lg:right-[63px]"
+                            ? "right-[15px] sm:right-[20px] lg:right-[25px]"
                             : card.number === "150+"
-                              ? "right-[10px] sm:right-[15px] lg:right-[90px]"
-                              : "right-[12px] sm:right-[17px] lg:right-[82px]"
+                              ? "right-[10px] sm:right-[15px] lg:right-[20px]"
+                              : "right-[12px] sm:right-[17px] lg:right-[22px]"
                         }`}
                       >
                         {card.number}
@@ -108,15 +109,15 @@ export const NextStepsSection = (): JSX.Element => {
                 ))}
 
                 {/* Call to action button */}
-                <Button className="w-full h-[48px] sm:h-[52px] lg:h-[58px] mt-4 sm:mt-5 lg:mt-6 bg-[#006837] text-white rounded-lg hover:bg-[#005a2f]">
-                  <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-[19px] w-full">
+                <Button className="w-full h-[40px] sm:h-[52px] lg:h-[58px] mt-1 sm:mt-2 lg:mt-1 bg-[#006837] text-white rounded-lg hover:bg-[#005a2f] ">
+                  <div className="flex items-center justify-center gap-3 sm:gap-4 lg:gap-[19px] w-full ">
                     <span className="[font-family:'Open_Sans',Helvetica] font-semibold text-white text-sm sm:text-base text-center tracking-[0] leading-5 whitespace-nowrap">
                       See What We Monitor
                     </span>
                     <img
-                      className="w-[28px] h-[28px] sm:w-[30px] sm:h-[30px] lg:w-[34px] lg:h-[34px]"
+                      className="w-[30px] h-[30px] bg-white rounded-full p-1 "
                       alt="Play"
-                      src={playIcon}
+                      src={monitor}
                     />
                   </div>
                 </Button>
@@ -126,7 +127,7 @@ export const NextStepsSection = (): JSX.Element => {
               <div 
                 className="w-full lg:w-[447px] h-[280px] sm:h-[320px] lg:h-[390px] bg-[#d9d9d9] rounded-lg bg-cover bg-center mx-auto lg:mx-0" 
                 style={{
-                  backgroundImage: `url(${header})`
+                  backgroundImage: `url(${device})`
                 }}
               >
               </div>

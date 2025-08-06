@@ -1,29 +1,32 @@
 import { Card, CardContent } from "../../../../components/ui/card";
-import plantone from "../../../../assets/plantone.svg";
+import featuregifone from "../../../../assets/Untitled Project 1.gif";
+import featuregiftwo from "../../../../assets/ezgif.com-video-to-gif-converter 1.gif";
+
 export const FeatureWrapperSection = (): JSX.Element => {
   // Data for the comparison cards
   const comparisonData = [
     {
-      title: "Without Proper Intelligence",
-      bgColor: "bg-[#fcfcdf]",
+      title: "With Proper Intelligence",
+      bgColor: "bg-white",
       content: (
-        <div 
-          className="relative w-full h-[380px] sm:h-[430px] lg:h-[520px] bg-cover bg-center" 
-          style={{
-            backgroundImage: `url(${plantone})`
-          }}
-        />
+        <div className=" bg-white relative w-full h-[380px] sm:h-[430px] lg:h-[520px] pt-[20px] sm:pt-[30px] lg:pt-[49px]">
+          <img
+            className=" bg-white w-full h-[340px] mt-[15px] sm:h-[380px] lg:h-[447px] object-contain"
+            alt="Plant without proper intelligence"
+            src={featuregifone}
+          />
+        </div>
       ),
     },
     {
-      title: "With Proper Intelligence",
+      title: "Without Proper Intelligence",
       bgColor: "bg-[#fcfcff]",
       content: (
-        <div className="relative w-full h-[380px] sm:h-[430px] lg:h-[520px] pt-[20px] sm:pt-[30px] lg:pt-[47px] px-[20px] sm:px-[25px] lg:px-[31px]">
+        <div className="relative w-full h-[380px] sm:h-[430px] lg:h-[520px] pt-[20px] sm:pt-[30px] lg:pt-[47px]">
           <img
-            className="w-full h-[340px] sm:h-[380px] lg:h-[447px] object-cover"
-            alt="Untitled project"
-            src={plantone}
+            className="w-full h-[340px] mt-[40px] sm:h-[380px] lg:h-[427px] object-contain"
+            alt="Plant with proper intelligence"
+            src={featuregiftwo}
           />
         </div>
       ),

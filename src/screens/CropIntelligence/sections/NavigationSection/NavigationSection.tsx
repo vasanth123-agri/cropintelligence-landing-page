@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Menu, X } from "lucide-react";
+import logo from "../../../../assets/Agri Inverse Logo.svg"
 
 export const NavigationSection = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,7 +22,7 @@ export const NavigationSection = (): JSX.Element => {
   return (
     <header className="w-full h-[85px] bg-white flex items-center justify-between px-4 sm:px-8 lg:px-20 relative">
       {/* Logo */}
-      <div className="w-[120px] h-[60px] sm:w-[140px] sm:h-[70px] lg:w-[168px] lg:h-[85px] bg-[url(/agri-inverse-logo.png)] bg-cover bg-center flex-shrink-0" />
+      <div className="w-[120px] h-[60px] sm:w-[140px] sm:h-[70px] lg:w-[168px] lg:h-[85px] bg-cover bg-center flex-shrink-0" style={{ backgroundImage: `url(${logo})` }} />
 
       {/* Desktop Navigation - Hidden on mobile/tablet */}
       <div className="hidden lg:flex items-center gap-9">
