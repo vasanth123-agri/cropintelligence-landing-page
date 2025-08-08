@@ -65,7 +65,7 @@ export const InfoSection = (): JSX.Element => {
   return (
     <section className="w-full pt-0 pb-4 sm:pb-6 lg:pb-4 relative">
       <Carousel setApi={setApi} className="w-full max-w-[1000px] mx-auto">
-        <CarouselContent className="-ml-2 md:-ml-4">
+        <CarouselContent className={`-ml-2 md:-ml-4 ${currentSlide === 0 ? 'pl-4 sm:pl-8 lg:pl-12' : ''}`}>
           {caseStudies.map((study, index) => (
             <CarouselItem key={study.id} className={`pl-2 md:pl-4 basis-[85%] md:basis-[80%] transition-all duration-300 ${index !== currentSlide ? 'blur-sm opacity-60' : ''}`}>
               <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[360px] sm:h-[360px] lg:h-[343px]">
