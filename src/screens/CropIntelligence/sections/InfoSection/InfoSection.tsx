@@ -63,14 +63,14 @@ export const InfoSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full py-12 relative">
+    <section className="w-full pt-0 pb-4 sm:pb-6 lg:pb-4 relative">
       <Carousel setApi={setApi} className="w-full max-w-[1000px] mx-auto">
         <CarouselContent className="-ml-2 md:-ml-4">
           {caseStudies.map((study, index) => (
             <CarouselItem key={study.id} className={`pl-2 md:pl-4 basis-[85%] md:basis-[80%] transition-all duration-300 ${index !== currentSlide ? 'blur-sm opacity-60' : ''}`}>
-              <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[343px]">
-                <CardContent className="p-0 flex h-full">
-                  <div className="relative w-[263px] h-[90%] p-[30px]">
+              <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[360px] sm:h-[360px] lg:h-[343px]">
+                <CardContent className="p-0 flex lg:flex-row flex-col h-full">
+                  <div className="relative lg:w-[263px] w-full lg:h-full h-[200px] lg:p-[30px] p-[20px]">
                     <img
                       className="w-full h-full object-cover rounded-lg"
                       alt="Farmer portrait"
@@ -78,7 +78,7 @@ export const InfoSection = (): JSX.Element => {
                     />
                   </div>
 
-                  <div className="flex-1 p-[20px] flex flex-col justify-between mt-[14px]">
+                  <div className="flex-1 p-[20px] flex flex-col justify-between lg:mt-[14px] mt-0">
                     <div>
                       <h3 className="font-semibold text-lg text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[15px]">
                         {study.name}
@@ -109,12 +109,12 @@ export const InfoSection = (): JSX.Element => {
                         <h4 className="font-semibold text-sm text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[8px]">
                           Here&apos;s what happened:
                         </h4>
-                        <p className="font-['Open_Sans',Helvetica] font-normal text-black text-sm leading-[29.5px] mb-0">
+                        <p className="font-['Open_Sans',Helvetica] font-normal text-black text-sm leading-[24px] mb-0 overflow-hidden" style={{ display: '-webkit-box', WebkitLineClamp: 4 as any, WebkitBoxOrient: 'vertical' as any }}>
                           {study.description}
                         </p>
                         <Button
                           variant="ghost"
-                          className="p-0 h-auto font-['Open_Sans',Helvetica] font-semibold text-sm text-[#006837] hover:bg-transparent hover:text-[#006837]/90 flex items-center gap-1 mt-[20px]"
+                          className="p-0 h-auto font-['Open_Sans',Helvetica] font-semibold text-sm text-[#006837] hover:bg-transparent hover:text-[#006837]/90 flex items-center gap-1 mt-[12px]"
                         >
                           Read Full Case Study
                           <ArrowUpRightIcon className="w-4 h-4" />

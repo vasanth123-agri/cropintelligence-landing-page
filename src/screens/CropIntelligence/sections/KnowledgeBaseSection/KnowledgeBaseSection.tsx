@@ -1,5 +1,4 @@
-  import { useEffect, useRef, useState } from "react";
-import { Card, CardContent } from "../../../../components/ui/card";
+import { useEffect, useRef, useState } from "react";
 
 
 export const KnowledgeBaseSection = (): JSX.Element => {
@@ -30,11 +29,12 @@ export const KnowledgeBaseSection = (): JSX.Element => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full py-12 sm:py-16 lg:py-20 bg-[#fbfbfb] px-4">
-      <Card className="max-w-[95%] sm:max-w-[90%] lg:max-w-[1064px] mx-auto border-none bg-transparent">
-        <CardContent className="p-0">
-          <p className="font-['Open_Sans',Helvetica] text-sm sm:text-base md:text-xl lg:text-4xl leading-[1.3] sm:leading-[1.4] md:leading-[1.5] lg:leading-[56px] tracking-[0]">
+    <section ref={sectionRef} className="w-full pt-8 pb-8 md:pt-12 md:pb-12 lg:pt-24 lg:pb-24 px-6 md:px-8 lg:px-4">
+      <div className="max-w-[95%] md:max-w-[90%] lg:max-w-[1064px] mx-auto">
+        <div className="px-2 md:px-4 lg:px-0">
+          <p className="font-['Open_Sans',Helvetica] text-2xl md:text-3xl lg:text-4xl leading-[1.4] md:leading-[1.5] lg:leading-[56px] tracking-[0] text-left">
             <span 
+              className="inline whitespace-normal break-words"
               style={{
                 background: `linear-gradient(to right, #FFD700, #000000)`,
                 backgroundClip: 'text',
@@ -48,6 +48,7 @@ export const KnowledgeBaseSection = (): JSX.Element => {
               You already know what to give your crops — we help you{" "}
             </span>
             <span 
+              className="inline whitespace-normal break-words"
               style={{
                 background: `linear-gradient(to right, #FFD700, #000000)`,
                 backgroundClip: 'text',
@@ -64,8 +65,8 @@ export const KnowledgeBaseSection = (): JSX.Element => {
               needs.
             </span>
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </section>
   );
 };

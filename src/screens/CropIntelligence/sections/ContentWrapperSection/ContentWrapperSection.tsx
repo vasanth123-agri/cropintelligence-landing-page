@@ -64,45 +64,14 @@ export const ContentWrapperSection = (): JSX.Element => {
   const payslipSuggestions = ["Download Payslip", "View Detailed Breakdown"];
 
   return (
-    <section className="relative w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
+    <section className="relative w-full mb-[76px] lg:mb-[213px] py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white text-center mb-8 sm:mb-10 lg:mb-12 font-['Jost',Helvetica]">
         Your Personal Farm Assistant
       </h2>
 
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-        {/* Left side - Features */}
-        <div className="flex flex-col space-y-8 sm:space-y-10 lg:space-y-12 w-full lg:w-1/2">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col cursor-pointer" onClick={() => setActiveGif(feature.gif)}>
-              <div className="flex items-center gap-3 sm:gap-4">
-                <img
-                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
-                  alt="Feature icon"
-                  src={feature.icon}
-                />
-                <h3 className="font-bold text-white text-lg sm:text-xl lg:text-[22px] leading-6 sm:leading-7 font-['Open_Sans',Helvetica]">
-                  {feature.title}
-                </h3>
-              </div>
-              <p className="ml-9 sm:ml-11 lg:ml-12 mt-2 sm:mt-3 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
-                {feature.description}
-              </p>
-            </div>
-          ))}
-
-          <Button
-            variant="default"
-            className="flex h-[40px] ml-[38px] gap-4  sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-6 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
-          >
-            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]">
-              See How Farmers Use the AI Chatbot
-            </span>
-            
-          </Button>
-        </div>
-
-        {/* Right side - Chat interface */}
-        <Card className="w-full lg:w-[558px] h-[400px] sm:h-[440px] lg:h-[480px] bg-[#f1f4f3] rounded-xl lg:rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden mx-auto lg:mx-0 relative">
+        {/* Mobile/Tablet: Chat interface first */}
+        <Card className="w-full lg:w-[558px] h-[400px] sm:h-[440px] lg:h-[480px] bg-[#f1f4f3] rounded-xl lg:rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden mx-auto lg:mx-0 relative lg:order-2 order-1">
           <CardContent className="p-0 h-full">
             {/* Chat header */}
             
@@ -364,6 +333,37 @@ export const ContentWrapperSection = (): JSX.Element => {
             )}
           </CardContent>
         </Card>
+
+        {/* Features - appears after chat on mobile/tablet, before on desktop */}
+        <div className="flex flex-col space-y-8 sm:space-y-10 lg:space-y-12 w-full lg:w-1/2 lg:order-1 order-2">
+          {features.map((feature, index) => (
+            <div key={index} className="flex flex-col space-y-2 sm:space-y-3 cursor-pointer" onClick={() => setActiveGif(feature.gif)}>
+              <div className="flex items-center gap-3 sm:gap-4">
+                <img
+                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
+                  alt="Feature icon"
+                  src={feature.icon}
+                />
+                <h3 className="font-bold text-white text-lg sm:text-xl lg:text-[22px] leading-6 sm:leading-7 font-['Open_Sans',Helvetica]">
+                  {feature.title}
+                </h3>
+              </div>
+              <p className="ml-9 sm:ml-11 lg:ml-12 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+
+          <Button
+            variant="default"
+            className="flex h-[40px] ml-[38px] gap-4  sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-6 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
+          >
+            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]">
+              See How Farmers Use the AI Chatbot
+            </span>
+            
+          </Button>
+        </div>
       </div>
     </section>
   );

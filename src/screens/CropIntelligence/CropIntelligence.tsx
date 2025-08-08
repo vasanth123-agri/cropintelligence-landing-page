@@ -56,37 +56,34 @@ export const CropIntelligence = (): JSX.Element => {
         <NavigationSection />
 
         {/* Feature Highlight Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
+        <div className="mb-8 sm:mb-12 lg:mb-24">
           <FeatureHighlightSection />
         </div>
 
         {/* Knowledge Base Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
-          <KnowledgeBaseSection />
-        </div>
+        <KnowledgeBaseSection />
         
-        <div className="mb-8 sm:mb-12 lg:mb-0">
-          <img className="w-full h-[84px]" alt="Frame" src={thickline} />
+        {/* Thick line */}
+        <div className="mb-0">
+          <img className="block w-full h-[160px] object-cover" alt="Frame" src={thickline} />
         </div>
 
-        {/* Feature Wrapper Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
-          <FeatureWrapperSection />
-        </div>
+        {/* Feature Wrapper Section (handles its own top/bottom spacing) */}
+        <FeatureWrapperSection />
 
         {/* Content Wrapper Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0">
+        <div className="mb-0">
           <ContentWrapperSection />
         </div>
 
         {/* Next Steps Section with Background */}
-        <div className="relative w-full mb-8 sm:mb-12 lg:mb-0">
+        <div className="relative w-full mb-0">
           <div className="absolute w-[466px] h-[466px] top-[472px] left-0 bg-[#0068378c] rounded-[233px] blur-[525px]" />
           <NextStepsSection />
         </div>
 
         {/* Next Steps Heading */}
-        <div className="w-full text-center pt- sm:mt-12 lg:mt-16 mb-8 sm:mb-12 lg:mb-16">
+        <div className="w-full text-center mt-[76px] lg:mt-[213px] mb-6 sm:mb-8 lg:mb-10">
           <h2 className="font-['Jost',Helvetica] font-medium text-black text-2xl sm:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
             Your Next Step
           </h2>
@@ -96,17 +93,20 @@ export const CropIntelligence = (): JSX.Element => {
         </div>
 
         {/* Info Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-16">
+        <div className="mb-16 sm:mb-20 lg:mb-24">
           <InfoSection />
         </div>
 
         {/* Call To Action Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-0 flex justify-center items-center">
+        <div className="mb-16 sm:mb-20 lg:mb-24 flex justify-center items-center">
           <CallToActionSection />
         </div>
 
         {/* Background Section */}
-        <BackgroundSection />
+        <div className="">
+           <BackgroundSection />
+        </div>
+       
       </div>
     </div>
   );

@@ -7,11 +7,11 @@ export const FeatureWrapperSection = (): JSX.Element => {
   const comparisonData = [
     {
       title: "With Proper Intelligence",
-      bgColor: "bg-white",
+      bgColor: "bg-[#FCFCFF]",
       content: (
-        <div className=" bg-white relative w-full h-[380px] sm:h-[430px] lg:h-[520px] pt-[20px] sm:pt-[30px] lg:pt-[49px]">
+        <div className="relative w-full h-full flex items-center justify-center">
           <img
-            className=" bg-white w-full h-[340px] mt-[15px] sm:h-[380px] lg:h-[447px] object-contain"
+            className="h-full w-auto object-contain"
             alt="Plant without proper intelligence"
             src={featuregifone}
           />
@@ -20,11 +20,11 @@ export const FeatureWrapperSection = (): JSX.Element => {
     },
     {
       title: "Without Proper Intelligence",
-      bgColor: "bg-[#fcfcff]",
+      bgColor: "bg-white",
       content: (
-        <div className="relative w-full h-[380px] sm:h-[430px] lg:h-[520px] pt-[20px] sm:pt-[30px] lg:pt-[47px]">
+        <div className="relative w-full h-full flex items-center justify-center">
           <img
-            className="w-full h-[340px] mt-[40px] sm:h-[380px] lg:h-[427px] object-contain"
+            className="h-full w-auto object-contain"
             alt="Plant with proper intelligence"
             src={featuregiftwo}
           />
@@ -34,7 +34,7 @@ export const FeatureWrapperSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full mx-auto py-8 sm:py-12 lg:py-16 px-4">
+    <section className="w-full mx-auto px-4 pt-[76px] pb-[76px] lg:pt-[213px] lg:pb-[213px]">
       <div className="text-center mb-8 sm:mb-10 lg:mb-12">
         <h2 className="font-medium text-2xl sm:text-3xl lg:text-4xl text-[#331818] [font-family:'Jost',Helvetica] leading-[1.4] sm:leading-[1.5] lg:leading-[56px] mb-2">
           Timing Makes the Difference
@@ -50,12 +50,17 @@ export const FeatureWrapperSection = (): JSX.Element => {
             key={index}
             className={`w-full max-w-[350px] sm:max-w-[400px] lg:max-w-[450px] xl:w-[500px] h-[400px] sm:h-[450px] lg:h-[500px] xl:h-[579px] overflow-hidden rounded-xl border-2 border-solid border-[#e1e1e1] ${item.bgColor} flex-shrink-0`}
           >
-            <CardContent className="p-0">
-              <div className="relative w-full h-full">
-                <h3 className="absolute top-[15px] sm:top-[18px] lg:top-[21px] left-1/2 transform -translate-x-1/2 font-medium text-lg sm:text-xl lg:text-2xl text-[#331818] [font-family:'Jost',Helvetica] leading-[1.4] lg:leading-[56px] whitespace-nowrap z-10 px-4">
-                  {item.title}
-                </h3>
-                <div className="mt-[50px] sm:mt-[55px] lg:mt-[60px] px-3 sm:px-4 lg:px-0">
+            <CardContent className="p-0 h-full">
+              {/* Equalized layout: fixed header height + fixed content height */}
+              <div className="flex h-full flex-col">
+                {/* Fixed-height header */}
+                <div className="flex-none text-center px-4 h-[48px] sm:h-[56px] lg:h-[64px] flex items-center justify-center">
+                  <h3 className="font-medium text-lg sm:text-xl lg:text-2xl text-[#331818] [font-family:'Jost',Helvetica] leading-[1.4] lg:leading-[56px] truncate w-full">
+                    {item.title}
+                  </h3>
+                </div>
+                {/* Content with explicit equal heights across breakpoints */}
+                <div className="flex-none px-3 sm:px-4 lg:px-6 h-[352px] sm:h-[394px] lg:h-[436px] xl:h-[515px]">
                   {item.content}
                 </div>
               </div>
