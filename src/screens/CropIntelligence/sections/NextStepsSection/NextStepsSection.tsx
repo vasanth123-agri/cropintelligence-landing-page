@@ -48,10 +48,15 @@ export const NextStepsSection = (): JSX.Element => {
                 <span className="text-[#006837]"> Efficiency &amp; Yield</span>
               </h2>
 
-              <p className="[font-family:'Jost',Helvetica] font-medium italic text-[#6d6d6d] text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0] leading-[1.4] sm:leading-[1.5] lg:leading-[56px] mt-2 lg:mt-0">
+              {/* Desktop subheading below title */}
+              <p className="hidden lg:block [font-family:'Jost',Helvetica] font-medium italic text-[#6d6d6d] text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0] leading-[1.4] sm:leading-[1.5] lg:leading-[56px] mt-2 lg:mt-0">
                 Powered by Data. Proven by Results.
               </p>
             </div>
+
+            <div className="block lg:hidden w-full flex justify-center mt-4">
+                  <img src={device} alt="Device demo" className="w-full max-w-[520px] h-auto object-contain rounded-lg" />
+                </div>
 
             <div className="flex flex-col lg:flex-row lg:justify-between lg:px-11 mt-6 sm:mt-8 lg:mt-[42px] gap-6 lg:gap-8">
               {/* Left column with feature cards */}
@@ -121,14 +126,25 @@ export const NextStepsSection = (): JSX.Element => {
                     />
                   </div>
                 </Button>
+
+                {/* Mobile/Tablet: device GIF between cards and subheading */}
+                
+
+                {/* Mobile subheading after GIF */}
+                <p className="block lg:hidden text-center [font-family:'Jost',Helvetica] font-medium italic text-[#6d6d6d] text-base sm:text-lg tracking-[0] leading-[1.4] sm:leading-[1.5] mt-4">
+                  Powered by Data. Proven by Results.
+                </p>
+              </div>
+
+              {/* Right column: device GIF only (desktop) */}
+              <div className="hidden lg:flex w-full lg:w-[542px] items-start justify-end">
+                <img src={device} alt="Device demo" className="max-w-[520px] max-h-[520px] w-auto h-auto object-contain select-none pointer-events-none" />
               </div>
             </div>
 
             {/* Footer text */}
-            <div className="text-center lg:absolute lg:h-[72px] lg:bottom-[59px] lg:left-[661px] [font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-base sm:text-lg lg:text-2xl text-center tracking-[0] leading-6 sm:leading-7 lg:leading-9 mt-6 lg:mt-0 px-4 lg:px-0">
-              We helping you boost yields, reduce inputs
-              <br />
-              and grow smarter.
+            <div className="text-center lg:absolute lg:h-[72px] lg:bottom-[59px] lg:left-[661px] [font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-base sm:text-lg lg:text-2xl text-center tracking-[0] leading-6 sm:leading-7 lg:leading-9 mt-3 lg:mt-0 px-2 lg:px-0">
+              We helping you boost yields, reduce inputs and grow smarter.
             </div>
           </div>
         </div>

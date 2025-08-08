@@ -65,7 +65,7 @@ export const CropIntelligence = (): JSX.Element => {
         
         {/* Thick line */}
         <div className="mb-0">
-          <img className="block w-full h-[160px] object-cover" alt="Frame" src={thickline} />
+          <img className="block w-full h-[80px] object-cover" alt="Frame" src={thickline} />
         </div>
 
         {/* Feature Wrapper Section (handles its own top/bottom spacing) */}
