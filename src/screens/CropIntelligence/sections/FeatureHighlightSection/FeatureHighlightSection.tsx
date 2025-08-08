@@ -9,6 +9,7 @@ export const FeatureHighlightSection = (): JSX.Element => {
           src="/device.gif" 
           alt="Device background" 
           className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
         />
         
         {/* Dark overlay for better text readability */}

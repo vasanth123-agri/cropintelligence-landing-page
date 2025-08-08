@@ -55,7 +55,7 @@ export const NextStepsSection = (): JSX.Element => {
             </div>
 
             <div className="block lg:hidden w-full flex justify-center mt-4">
-                  <img src={device} alt="Device demo" className="w-full max-w-[520px] h-auto object-contain rounded-lg" />
+                  <img src={device} alt="Device demo" className="w-full max-w-[520px] h-auto object-contain rounded-lg" loading="eager" />
                 </div>
 
             <div className="flex flex-col lg:flex-row lg:justify-between lg:px-11 mt-6 sm:mt-8 lg:mt-[42px] gap-6 lg:gap-8">
@@ -138,7 +138,7 @@ export const NextStepsSection = (): JSX.Element => {
 
               {/* Right column: device GIF only (desktop) */}
               <div className="hidden lg:flex w-full lg:w-[542px] items-start justify-end">
-                <img src={device} alt="Device demo" className="max-w-[520px] max-h-[520px] w-auto h-auto object-contain select-none pointer-events-none" />
+                <img src={device} alt="Device demo" className="max-w-[520px] max-h-[520px] w-auto h-auto object-contain select-none pointer-events-none" loading="eager" />
               </div>
             </div>
 

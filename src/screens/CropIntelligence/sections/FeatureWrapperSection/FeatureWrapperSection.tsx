@@ -14,6 +14,7 @@ export const FeatureWrapperSection = (): JSX.Element => {
             className="h-full w-auto object-contain"
             alt="Plant without proper intelligence"
             src={featuregifone}
+            loading="eager"
           />
         </div>
       ),
@@ -27,6 +28,7 @@ export const FeatureWrapperSection = (): JSX.Element => {
             className="h-full w-auto object-contain"
             alt="Plant with proper intelligence"
             src={featuregiftwo}
+            loading="eager"
           />
         </div>
       ),
