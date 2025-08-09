@@ -59,7 +59,8 @@ export const InfoSection = (): JSX.Element => {
   // Helper function to truncate text to exactly 3 lines
   const truncateToLines = (text: string, maxLines: number = 3): string => {
     const words = text.split(' ');
-    const wordsPerLine = 12; // Approximate words per line for better accuracy
+    // Adjust words per line based on screen size
+    const wordsPerLine = window.innerWidth < 768 ? 8 : 12; // Less words per line on mobile
     const maxWords = maxLines * wordsPerLine;
     
     if (words.length <= maxWords) return text;
@@ -227,9 +228,9 @@ export const InfoSection = (): JSX.Element => {
             
             return (
               <CarouselItem key={blog.id} className={`pl-2 md:pl-4 basis-[85%] md:basis-[80%] transition-all duration-300 ${index !== currentSlide ? 'blur-sm opacity-60' : ''}`}>
-                <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[400px] sm:h-[400px] lg:h-[380px]">
+                <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[450px] sm:h-[420px] lg:h-[380px]">
                   <CardContent className="p-0 flex lg:flex-row flex-col h-full">
-                    <div className="relative lg:w-[263px] w-full lg:h-full h-[200px] lg:p-[30px] p-[20px]">
+                    <div className="relative lg:w-[263px] w-full lg:h-full h-[180px] sm:h-[200px] lg:p-[30px] p-[20px]">
                       <img
                         className="w-full h-full object-cover rounded-lg"
                         alt={`${blog.authorName} profile`}
@@ -238,25 +239,25 @@ export const InfoSection = (): JSX.Element => {
                       />
                     </div>
 
-                    <div className="flex-1 p-[20px] flex flex-col justify-between lg:mt-[14px] mt-0">
-                      <div>
-                        <h3 className="font-semibold text-lg text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[15px]">
+                    <div className="flex-1 p-[15px] sm:p-[20px] flex flex-col lg:mt-[14px] mt-0 min-h-0">
+                      <div className="flex-1 flex flex-col">
+                        <h3 className="font-semibold text-base sm:text-lg text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[10px] sm:mb-[15px]">
                           {blog.authorName}
                         </h3>
 
-                        <div className="mb-[20px]">
-                          <div className="flex flex-wrap gap-x-5 gap-y-2">
-                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-sm">
+                        <div className="mb-[15px] sm:mb-[20px]">
+                          <div className="flex flex-wrap gap-x-3 sm:gap-x-5 gap-y-1 sm:gap-y-2">
+                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-xs sm:text-sm">
                               <span>Crop: </span>
                               <span className="font-semibold">{blog.cropName}</span>
                             </div>
-                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-sm">
+                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-xs sm:text-sm">
                               <span>Farm Size: </span>
                               <span className="font-semibold">
                                 {blog.farmSize}
                               </span>
                             </div>
-                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-sm">
+                            <div className="font-['Open_Sans',Helvetica] text-[#474747] text-xs sm:text-sm break-all">
                               <span>Blog: </span>
                               <span className="font-semibold">
                                 {blog.title}
@@ -265,22 +266,26 @@ export const InfoSection = (): JSX.Element => {
                           </div>
                         </div>
 
-                        <div className="mb-[20px]">
-                          <h4 className="font-semibold text-sm text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[8px]">
-                            Here&apos;s what they shared:
-                          </h4>
-                          <p className="font-['Open_Sans',Helvetica] font-normal text-black text-sm leading-[24px] mb-0">
-                            {truncatedContent}
-                          </p>
+                        <div className="flex-1 flex flex-col justify-between">
+                          <div>
+                            <h4 className="font-semibold text-xs sm:text-sm text-[#1a1a1a] font-['Open_Sans',Helvetica] mb-[6px] sm:mb-[8px]">
+                              Here&apos;s what they shared:
+                            </h4>
+                            <p className="font-['Open_Sans',Helvetica] font-normal text-black text-xs sm:text-sm leading-[20px] sm:leading-[24px] mb-0">
+                              {truncatedContent}
+                            </p>
+                          </div>
                           {needsReadMore && (
-                            <Button
-                              variant="ghost"
-                              onClick={() => openBlogInNewPage(blog)}
-                              className="p-0 h-auto font-['Open_Sans',Helvetica] font-semibold text-sm text-[#006837] hover:bg-transparent hover:text-[#006837]/90 flex items-center gap-1 mt-[12px]"
-                            >
-                              Read More
-                              <ArrowUpRightIcon className="w-4 h-4" />
-                            </Button>
+                            <div className="mt-[8px] sm:mt-[12px]">
+                              <Button
+                                variant="ghost"
+                                onClick={() => openBlogInNewPage(blog)}
+                                className="p-0 h-auto font-['Open_Sans',Helvetica] font-semibold text-xs sm:text-sm text-[#006837] hover:bg-transparent hover:text-[#006837]/90 flex items-center gap-1"
+                              >
+                                Read More
+                                <ArrowUpRightIcon className="w-3 h-3 sm:w-4 sm:h-4" />
+                              </Button>
+                            </div>
                           )}
                         </div>
                       </div>
