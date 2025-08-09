@@ -81,33 +81,78 @@ export const InfoSection = (): JSX.Element => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <title>${blog.title} - ${blog.authorName}</title>
           <script src="https://cdn.tailwindcss.com"></script>
-          <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+          <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
           <style>
-            body { font-family: 'Open Sans', sans-serif; }
+            body { 
+              font-family: 'Inter', 'Open Sans', sans-serif; 
+              line-height: 1.7;
+              color: #1f2937;
+            }
+            .prose p { margin-bottom: 1.25rem; }
+            .prose img { margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+            .prose code { 
+              background: #f1f5f9; 
+              padding: 0.125rem 0.375rem; 
+              border-radius: 0.375rem; 
+              font-size: 0.875rem;
+              color: #475569;
+              font-weight: 500;
+            }
+            .prose a { 
+              color: #059669; 
+              text-decoration: none; 
+              font-weight: 500;
+              border-bottom: 1px solid transparent;
+              transition: all 0.2s ease;
+            }
+            .prose a:hover { 
+              color: #047857; 
+              border-bottom-color: #047857;
+            }
+            .gradient-bg {
+              background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 50%, #f7fee7 100%);
+            }
+            .card-shadow {
+              box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+            .author-badge {
+              background: linear-gradient(135deg, #059669 0%, #047857 100%);
+            }
           </style>
         </head>
-        <body class="bg-gray-50 min-h-screen">
-          <div class="max-w-4xl mx-auto px-4 py-8">
+        <body class="gradient-bg min-h-screen">
+          <div class="max-w-4xl mx-auto px-6 py-8">
             <!-- Header -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6 mb-6">
-              <div class="flex items-start gap-6">
-                <img 
-                  src="${blog.profilePic}" 
-                  alt="${blog.authorName}"
-                  class="w-20 h-20 rounded-full object-cover border-2 border-gray-100"
-                />
+            <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-8 mb-8">
+              <div class="flex items-start gap-8">
+                <div class="relative">
+                  <img 
+                    src="${blog.profilePic}" 
+                    alt="${blog.authorName}"
+                    class="w-24 h-24 rounded-2xl object-cover border-4 border-green-50"
+                  />
+                  <div class="absolute -bottom-2 -right-2 w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                </div>
                 <div class="flex-1">
-                  <h1 class="text-2xl font-bold text-gray-900 mb-2">${blog.title}</h1>
-                  <h2 class="text-xl font-semibold text-green-700 mb-3">by ${blog.authorName}</h2>
-                  <div class="flex flex-wrap gap-4 text-sm text-gray-600">
-                    <span class="bg-green-50 px-3 py-1 rounded-full">
-                      <span class="font-medium">Crop:</span> ${blog.cropName}
+
+                  <h2 class="text-xl font-semibold text-green-700 mb-4"> ${blog.authorName}</h2>
+                  <div class="flex flex-wrap gap-3">
+                    <span class="bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200">
+                      🌱 ${blog.cropName}
                     </span>
-                    <span class="bg-blue-50 px-3 py-1 rounded-full">
-                      <span class="font-medium">Farm Size:</span> ${blog.farmSize}
+                    <span class="bg-blue-50 text-blue-700 px-4 py-2 rounded-full text-sm font-medium border border-blue-200">
+                      🚜 ${blog.farmSize}
                     </span>
-                    <span class="bg-gray-50 px-3 py-1 rounded-full">
-                      <span class="font-medium">Published:</span> ${new Date(blog.createdAt).toLocaleDateString()}
+                    <span class="bg-gray-50 text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">
+                      📅 ${new Date(blog.createdAt).toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
                     </span>
                   </div>
                 </div>
@@ -115,20 +160,31 @@ export const InfoSection = (): JSX.Element => {
             </div>
             
             <!-- Content -->
-            <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-              <div class="prose prose-lg max-w-none">
+            <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-8 mb-8">
+              <div class="prose prose-lg max-w-none leading-relaxed">
                 ${blog.content}
               </div>
             </div>
             
             <!-- Footer -->
-            <div class="mt-8 text-center">
-              <button 
-                onclick="window.close()" 
-                class="bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded-lg transition-colors duration-200"
-              >
-                Close
-              </button>
+            <div class="text-center">
+              <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-6 mb-6">
+               
+                <div class="flex justify-center gap-4">
+                  <button 
+                    onclick="window.print()" 
+                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl transition-all duration-200 font-medium flex items-center gap-2"
+                  >
+                    
+                  </button>
+                  <button 
+                    onclick="window.close()" 
+                    class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </body>

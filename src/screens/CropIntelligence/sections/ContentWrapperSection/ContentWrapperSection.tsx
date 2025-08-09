@@ -18,7 +18,7 @@ import chattwogif from "../../../../assets/Agri-Chatbot-GIF-1.gif"
 import chatthreegif from "../../../../assets/Agri-Chatbot-GIF-2.gif"
 
 export const ContentWrapperSection = (): JSX.Element => {
-  const [activeGif, setActiveGif] = useState<string | null>(null);
+  const [activeGif, setActiveGif] = useState<string | null>(chatgif);
 
   // Feature data for the left side
   const features = [
