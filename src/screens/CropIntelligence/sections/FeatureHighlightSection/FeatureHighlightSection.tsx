@@ -1,12 +1,12 @@
 import { ArrowRight } from "lucide-react";
-
+import device from "../../../../assets/devic.jpeg"
 export const FeatureHighlightSection = (): JSX.Element => {
   return (
     <section className="w-full h-[500px] sm:h-[550px] md:h-[600px] lg:h-[750px] bg-white overflow-hidden">
       <div className="h-full relative">
         {/* Background GIF */}
         <img 
-          src="/device.gif" 
+          src={device} 
           alt="Device background" 
           className="absolute inset-0 w-full h-full object-cover"
           loading="eager"
