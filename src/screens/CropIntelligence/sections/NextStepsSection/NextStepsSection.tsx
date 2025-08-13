@@ -34,12 +34,12 @@ export const NextStepsSection = (): JSX.Element => {
   return (
     <section className="w-full bg-white">
       <div 
-        className="min-h-[600px] sm:min-h-[700px] lg:h-[949px] bg-cover bg-center bg-no-repeat px-4 sm:px-6 lg:px-0"
+        className="min-h-[600px] sm:min-h-[700px] lg:h-[819px] bg-cover bg-center bg-no-repeat px-4 sm:px-6 lg:px-0"
         style={{
           backgroundImage: `url(${bg})`
         }}
       >
-        <div className="relative w-full max-w-[95%] sm:max-w-[846px] lg:max-w-[1152px] min-h-[243px] sm:min-h-[650px] lg:h-[754px] mx-auto pt-8 pb-8 sm:pt-12 sm:pb-12 lg:mt-[98px] rounded-[16px] sm:rounded-[20px] lg:rounded-[22px] overflow-hidden">
+        <div className="relative w-full max-w-[95%] sm:max-w-[846px] lg:max-w-[1152px] min-h-[243px] sm:min-h-[650px] lg:h-[754px] mx-auto pt-8 pb-8 sm:pt-12 sm:pb-12 lg:mt-[128px] rounded-[16px] sm:rounded-[20px] lg:rounded-[22px] overflow-hidden ">
           <div className="relative min-h-[540px] sm:min-h-[640px] lg:h-[740px] bg-[#fffffff5] rounded-lg sm:rounded-xl backdrop-blur-sm backdrop-brightness-[100%] [-webkit-backdrop-filter:blur(4px)_brightness(100%)] p-4 sm:p-6 lg:p-0">
             {/* Heading */}
             <div className="text-center pt-6 sm:pt-8 lg:pt-[49px] px-2 sm:px-4 lg:px-0">

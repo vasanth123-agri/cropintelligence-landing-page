@@ -5,7 +5,7 @@ import { Card, CardContent } from "../../../../components/ui/card";
 export const CallToActionSection = (): JSX.Element => {
   return (
     <Card className="max-w-[1280px] rounded-xl overflow-hidden border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white mx-auto">
-      <CardContent className="flex flex-col items-center justify-center lg:pt-8 lg:pb-12 md:py-10 py-8 lg:px-6 md:px-5 px-4">
+      <CardContent className="flex flex-col items-center justify-center lg:pt-12 lg:pb-12 md:py-10 py-8 lg:px-6 md:px-5 px-4">
         <h2 className="lg:text-[40px] md:text-[32px] text-[28px] font-bold text-[#006837] text-center lg:leading-[58px] md:leading-[46px] leading-[40px] [font-family:'Jost',Helvetica] mb-3">
           Don&apos;t leave your farm&apos;s success to guesswork,
         </h2>

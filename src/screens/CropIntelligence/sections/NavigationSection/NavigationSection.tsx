@@ -20,7 +20,8 @@ export const NavigationSection = (): JSX.Element => {
   };
 
   return (
-    <header className="w-full h-[85px] bg-white flex items-center justify-between px-4 sm:px-8 lg:px-20 relative">
+    <header className="w-full h-[85px] bg-white flex items-center justify-between px-4 sm:px-8 lg:px-20
+     relative">
       {/* Logo */}
       <div className="w-[120px] h-[60px] sm:w-[140px] sm:h-[70px] lg:w-[168px] lg:h-[85px] bg-cover bg-center flex-shrink-0" style={{ backgroundImage: `url(${logo})` }} />
 

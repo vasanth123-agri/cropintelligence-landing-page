@@ -18,7 +18,7 @@ import chattwogif from "../../../../assets/Agri-Chatbot-GIF-1.gif"
 import chatthreegif from "../../../../assets/Agri-Chatbot-GIF-2.gif"
 
 export const ContentWrapperSection = (): JSX.Element => {
-  const [activeGif, setActiveGif] = useState<string | null>(chatgif);
+  const [activeGif, setActiveGif] = useState<string | null>(null);
 
   // Feature data for the left side
   const features = [
@@ -64,7 +64,7 @@ export const ContentWrapperSection = (): JSX.Element => {
   const payslipSuggestions = ["Download Payslip", "View Detailed Breakdown"];
 
   return (
-    <section className="relative w-full mb-[76px] lg:mb-[213px] py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
+    <section className="relative w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white text-center mb-8 sm:mb-10 lg:mb-12 font-['Jost',Helvetica]">
         Your Personal Farm Assistant
       </h2>
@@ -77,9 +77,7 @@ export const ContentWrapperSection = (): JSX.Element => {
             
 
             {activeGif ? (
-              <div className="absolute inset-0 bg-[#f1f4f3] flex items-center justify-center">
-                <img src={activeGif} alt="Chat animation" className="max-w-full max-h-full w-auto h-auto object-contain" />
-              </div>
+              <img src={activeGif} alt="Chat animation" className="absolute inset-0 w-full h-full object-fill" style={{ borderRadius: 'inherit' }} />
             ) : (
               <>
                 {/* Chat content */}
@@ -339,24 +337,7 @@ export const ContentWrapperSection = (): JSX.Element => {
         {/* Features - appears after chat on mobile/tablet, before on desktop */}
         <div className="flex flex-col space-y-8 sm:space-y-10 lg:space-y-12 w-full lg:w-1/2 lg:order-1 order-2">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              role="button"
-              tabIndex={0}
-              aria-pressed={activeGif === feature.gif}
-              onClick={() => setActiveGif(feature.gif)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") {
-                  e.preventDefault();
-                  setActiveGif(feature.gif);
-                }
-              }}
-              className={`flex flex-col space-y-2 sm:space-y-3 cursor-pointer rounded-2xl border-2 transition-all duration-200 p-4 sm:p-5 lg:p-6 bg-white/0 hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-white/60 active:scale-[0.99] ${
-                activeGif === feature.gif
-                  ? "border-white bg-white/10 shadow-[0_8px_24px_rgba(0,0,0,0.2)]"
-                  : "border-white/30 hover:border-white/60"
-              }`}
-            >
+            <div key={index} className="flex flex-col space-y-2 sm:space-y-3 cursor-pointer" onClick={() => setActiveGif(feature.gif)}>
               <div className="flex items-center gap-3 sm:gap-4">
                 <img
                   className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"

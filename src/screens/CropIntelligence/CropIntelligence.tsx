@@ -56,7 +56,7 @@ export const CropIntelligence = (): JSX.Element => {
         <NavigationSection />
 
         {/* Feature Highlight Section */}
-        <div className="mb-8 sm:mb-12 lg:mb-24">
+        <div className="mb-8 sm:mb-12 lg:mb-12">
           <FeatureHighlightSection />
         </div>
 
@@ -64,7 +64,7 @@ export const CropIntelligence = (): JSX.Element => {
         <KnowledgeBaseSection />
         
         {/* Thick line */}
-        <div className="mb-0">
+        <div className="mb-8 sm:mb-12 lg:mb-12">
           <img className="block w-full h-[80px] object-cover" alt="Frame" src={thickline} />
         </div>
 
@@ -72,19 +72,19 @@ export const CropIntelligence = (): JSX.Element => {
         <FeatureWrapperSection />
 
         {/* Content Wrapper Section */}
-        <div className="mb-0">
+        <div className="mb-8 sm:mb-12 lg:mb-12 lg:mt-16">
           <ContentWrapperSection />
         </div>
 
         {/* Next Steps Section with Background */}
-        <div className="relative w-full mb-0">
+        <div className="relative w-full mb-8 sm:mb-12 lg:mb-12">
           <div className="absolute w-[466px] h-[466px] top-[472px] left-0 bg-[#0068378c] rounded-[233px] blur-[525px]" />
           <NextStepsSection />
         </div>
 
         {/* Next Steps Heading */}
-        <div className="w-full text-center mt-[76px] lg:mt-[213px] mb-6 sm:mb-8 lg:mb-10">
-          <h2 className="font-['Jost',Helvetica] font-medium text-black text-2xl sm:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
+        <div className="w-full text-center mt-8 lg:mt-12 mb-6 sm:mb-8 lg:mb-10">
+          <h2 className="font-['Jost',Helvetica] font-medium text-black text-2xl sm:text-3xl lg:text-4xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0 lg:mt-[120px]">
             Your Next Step
           </h2>
           <p className="font-['Jost',Helvetica] font-medium italic text-[#6d6d6d] text-lg sm:text-xl lg:text-2xl leading-[1.4] sm:leading-[1.5] lg:leading-[56px] px-4 lg:px-0">
@@ -93,17 +93,17 @@ export const CropIntelligence = (): JSX.Element => {
         </div>
 
         {/* Info Section */}
-        <div className="mb-16 sm:mb-20 lg:mb-24">
+        <div className="mb-8 sm:mb-8 lg:mb-24">
           <InfoSection />
         </div>
 
         {/* Call To Action Section */}
-        <div className="mb-16 sm:mb-20 lg:mb-24 flex justify-center items-center">
+        <div className="mb-8 sm:mb-12 lg:mb-12 flex justify-center items-center">
           <CallToActionSection />
         </div>
 
         {/* Background Section */}
-        <div className="">
+        <div className="lg:mt-[120px] ">
            <BackgroundSection />
         </div>
        

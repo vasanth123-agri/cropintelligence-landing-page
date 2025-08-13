@@ -43,7 +43,7 @@ export const BackgroundSection = (): JSX.Element => {
   };
 
   return (
-    <footer className="relative w-full bg-[#006837] py-24 lg:mt-[230px] sm:mt-[72px] md:mt-[72px]">
+    <footer className="relative w-full bg-[#006837] py-24 lg:mt-[64px] sm:mt-[48px] md:mt-[56px]">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Our Office Section */}
         <div className="space-y-6">

@@ -218,7 +218,7 @@ export const InfoSection = (): JSX.Element => {
   }
 
   return (
-    <section className="w-full pt-0 pb-4 sm:pb-6 lg:pb-4 relative">
+    <section className="w-full pt-0 pb-4 sm:pb-6 lg:pb-4 lg:mt-[80px] relative">
       <Carousel setApi={setApi} className="w-full max-w-[1000px] mx-auto">
         <CarouselContent className={`-ml-2 md:-ml-4 ${currentSlide === 0 ? 'pl-4 sm:pl-8 lg:pl-12' : ''}`}>
           {blogData.map((blog, index) => {

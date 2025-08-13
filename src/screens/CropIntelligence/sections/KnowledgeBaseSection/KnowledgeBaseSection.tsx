@@ -29,7 +29,7 @@ export const KnowledgeBaseSection = (): JSX.Element => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full pt-8 pb-8 md:pt-12 md:pb-12 lg:pt-24 lg:pb-24 px-6 md:px-8 lg:px-4">
+    <section ref={sectionRef} className="w-full pt-8 pb-8 md:pt-12 md:pb-12 lg:pt-16 lg:pb-16 px-6 md:px-8 lg:px-4">
       <div className="max-w-[95%] md:max-w-[90%] lg:max-w-[1064px] mx-auto">
         <div className="px-2 md:px-4 lg:px-0">
           <p className="font-['Open_Sans',Helvetica] text-2xl md:text-3xl lg:text-4xl leading-[1.4] md:leading-[1.5] lg:leading-[56px] tracking-[0] text-left">

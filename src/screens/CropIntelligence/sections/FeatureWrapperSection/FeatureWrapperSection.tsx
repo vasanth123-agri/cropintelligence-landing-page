@@ -36,7 +36,7 @@ export const FeatureWrapperSection = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-full mx-auto px-4 pt-[76px] pb-[76px] lg:pt-[213px] lg:pb-[213px]">
+    <section className="w-full mx-auto px-4 pt-[40px] pb-[40px] lg:pt-[60px] lg:pb-[60px]">
       <div className="text-center mb-8 sm:mb-10 lg:mb-12">
         <h2 className="font-medium text-2xl sm:text-3xl lg:text-4xl text-[#331818] [font-family:'Jost',Helvetica] leading-[1.4] sm:leading-[1.5] lg:leading-[56px] mb-2">
           Timing Makes the Difference
