@@ -1,29 +1,62 @@
 import { useState } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Menu, X } from "lucide-react";
-import logo from "../../../../assets/Agri Inverse Logo.svg"
+import logo from "../../../../assets/Agri Inverse Logo.svg";
 
 export const NavigationSection = (): JSX.Element => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // --- FIX 1: Standardized 'onClick' property and added handler for 'Home' ---
   // Navigation items data
   const navItems = [
-    { label: "Home", width: "w-[52px]" },
-    { label: "About", width: "w-[52px]" },
-    { label: "Services", width: "w-[70px]" },
-    { label: "Portfolio", width: "w-[74px]" },
-    { label: "Contact", width: "w-[66px]" },
+    {
+      label: "Home",
+      width: "w-[52px]",
+      onClick: () => (window.location.href = "https://agriinverse.in/"),
+    },
+    {
+      label: "About",
+      width: "w-[52px]",
+      onClick: () => window.open("https://agriinverse.in/"),
+    },
+    {
+      label: "Services",
+      width: "w-[70px]",
+      onClick: () => window.open("https://agriinverse.in/service.html"),
+    },
+    {
+      label: "Portfolio",
+      width: "w-[74px]",
+      onClick: () => window.open("https://agriinverse.in/product.html"),
+    },
+    {
+      label: "Contact",
+      width: "w-[66px]",
+      onClick: () => window.open("https://agriinverse.in/contact.html"),
+    },
   ];
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
+  // A helper function to handle link clicks
+  const handleLinkClick = (itemOnClick?: () => void) => {
+    if (itemOnClick) {
+        itemOnClick();
+    }
+    setIsMenuOpen(false); // Always close menu on link click
+  };
+
 
   return (
-    <header className="w-full h-[85px] bg-white flex items-center justify-between px-4 sm:px-8 lg:px-20
-     relative">
+    <header className="w-full h-[85px] bg-white flex items-center justify-between px-4 sm:px-8 lg:px-20 relative">
       {/* Logo */}
-      <div className="w-[120px] h-[60px] sm:w-[140px] sm:h-[70px] lg:w-[168px] lg:h-[85px] bg-cover bg-center flex-shrink-0" style={{ backgroundImage: `url(${logo})` }} />
+      <div
+        className="w-[120px] h-[60px] sm:w-[140px] sm:h-[70px] lg:w-[168px] lg:h-[85px] bg-cover bg-center flex-shrink-0 cursor-pointer"
+        style={{ backgroundImage: `url(${logo})` }}
+        onClick={() => (window.location.href = "https://agriinverse.in/")}
+      />
 
       {/* Desktop Navigation - Hidden on mobile/tablet */}
       <div className="hidden lg:flex items-center gap-9">
@@ -32,6 +65,11 @@ export const NavigationSection = (): JSX.Element => {
             <a
               key={index}
               href="#"
+              // --- FIX 2: Added the onClick handler for desktop links ---
+              onClick={(e) => {
+                e.preventDefault(); // Prevent default anchor behavior
+                handleLinkClick(item.onClick)
+              }}
               className={`${item.width} h-6 font-['Open_Sans',Helvetica] font-normal text-[#0f4229] text-lg tracking-[0] leading-[27px] whitespace-nowrap cursor-pointer hover:text-[#006837] transition-colors flex items-center`}
             >
               {item.label}
@@ -63,18 +101,18 @@ export const NavigationSection = (): JSX.Element => {
                 key={index}
                 href="#"
                 className="px-6 py-3 font-['Open_Sans',Helvetica] font-normal text-[#0f4229] text-lg hover:text-[#006837] hover:bg-gray-50 transition-colors"
-                onClick={() => setIsMenuOpen(false)}
+                // --- FIX 3: Updated onClick to perform navigation AND close the menu ---
+                onClick={(e) => {
+                    e.preventDefault(); // Prevent default anchor behavior
+                    handleLinkClick(item.onClick);
+                }}
               >
                 {item.label}
               </a>
             ))}
-            
+
             {/* Mobile Login Button */}
-            <div className="px-6 py-3">
-              <Button className="w-full h-10 bg-[#006837] rounded text-white text-base font-['Open_Sans',Helvetica] font-normal hover:bg-[#005a2f]">
-                Login
-              </Button>
-            </div>
+            
           </div>
         </div>
       )}

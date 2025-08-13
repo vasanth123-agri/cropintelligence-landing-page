@@ -18,8 +18,6 @@ import chattwogif from "../../../../assets/Agri-Chatbot-GIF-1.gif"
 import chatthreegif from "../../../../assets/Agri-Chatbot-GIF-2.gif"
 
 export const ContentWrapperSection = (): JSX.Element => {
-  const [activeGif, setActiveGif] = useState<string | null>(null);
-
   // Feature data for the left side
   const features = [
     {
@@ -45,6 +43,11 @@ export const ContentWrapperSection = (): JSX.Element => {
     },
   ];
 
+  const [activeGif, setActiveGif] = useState<string | null>(features[0].gif);
+  // --- FIX 1: Add state to track the active feature index ---
+  const [activeIndex, setActiveIndex] = useState<number>(0);
+
+
   // Chat suggestion buttons data
   const topSuggestions = [
     "Billing & Plans",
@@ -63,6 +66,16 @@ export const ContentWrapperSection = (): JSX.Element => {
 
   const payslipSuggestions = ["Download Payslip", "View Detailed Breakdown"];
 
+  // --- FIX 2: Create a handler to update both GIF and active index ---
+  const handleFeatureClick = (gif: string, index: number) => {
+    setActiveGif(gif);
+    setActiveIndex(index);
+  };
+
+   const handleCalendlyAppointment = () => {
+    window.open("https://calendly.com/jeydev007/crop-intelligence-meeting", "_blank");
+  }
+
   return (
     <section className="relative w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-white text-center mb-8 sm:mb-10 lg:mb-12 font-['Jost',Helvetica]">
@@ -73,11 +86,22 @@ export const ContentWrapperSection = (): JSX.Element => {
         {/* Mobile/Tablet: Chat interface first */}
         <Card className="w-full lg:w-[558px] h-[400px] sm:h-[440px] lg:h-[480px] bg-[#f1f4f3] rounded-xl lg:rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden mx-auto lg:mx-0 relative lg:order-2 order-1">
           <CardContent className="p-0 h-full">
-            {/* Chat header */}
-            
 
             {activeGif ? (
-              <img src={activeGif} alt="Chat animation" className="absolute inset-0 w-full h-full object-fill" style={{ borderRadius: 'inherit' }} />
+              <div className="relative w-full h-full">
+                <img src={activeGif} alt="Chat animation" className="w-full h-full object-fill" style={{ borderRadius: 'inherit' }} />
+                <button
+                  onClick={() => setActiveGif(null)}
+                  className="absolute top-4 left-4 p-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors z-10"
+                  aria-label="Back to chat"
+                >
+                    <img
+                        className="w-[20px] h-[20px]"
+                        alt="Back to chat"
+                        src={chatbackbutton}
+                    />
+                </button>
+              </div>
             ) : (
               <>
                 {/* Chat content */}
@@ -88,7 +112,7 @@ export const ContentWrapperSection = (): JSX.Element => {
                       <img
                         className="w-[35.74px] h-[35.74px]"
                         alt="Agribot avatar"
-                        src= {chatbackbutton}
+                        src={chatbackbutton}
                       />
                       <div className="bg-[linear-gradient(143deg,rgba(37,42,42,1)_27%,rgba(0,0,0,1)_100%)] [-webkit-background-clip:text] bg-clip-text [-webkit-text-fill-color:transparent] [text-fill-color:transparent] font-['Urbanist',Helvetica] font-semibold text-[17.9px] leading-[35.1px]">
                         Agribot
@@ -101,7 +125,7 @@ export const ContentWrapperSection = (): JSX.Element => {
                         <img
                           className="w-28 h-28 mb-6"
                           alt="Bot icon"
-                          src= {chatboticon}
+                          src={chatboticon}
                         />
                         <div className="bg-[#f2f5f4] px-[22.34px] py-[14.89px] rounded-[22.34px] border-[0.74px] border-solid border-[#dce4e2]">
                           <div className="font-['Urbanist',Helvetica] font-semibold text-[#7d7d7d] text-[23.8px] text-center leading-[14.9px]">
@@ -335,34 +359,43 @@ export const ContentWrapperSection = (): JSX.Element => {
         </Card>
 
         {/* Features - appears after chat on mobile/tablet, before on desktop */}
-        <div className="flex flex-col space-y-8 sm:space-y-10 lg:space-y-12 w-full lg:w-1/2 lg:order-1 order-2">
-          {features.map((feature, index) => (
-            <div key={index} className="flex flex-col space-y-2 sm:space-y-3 cursor-pointer" onClick={() => setActiveGif(feature.gif)}>
-              <div className="flex items-center gap-3 sm:gap-4">
+        <div className="flex flex-col space-y-4 w-full lg:w-1/2 lg:order-1 order-2">
+            {/* --- FIX 3: Mapped features with new styling for active and hover states --- */}
+            {features.map((feature, index) => (
+            <div
+                key={index}
+                className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${
+                activeIndex === index
+                    ? 'bg-white/10 border-white/40' // Style for the active feature
+                    : 'border-transparent hover:bg-white/5 hover:border-white/20' // Style for inactive features on hover
+                }`}
+                onClick={() => handleFeatureClick(feature.gif, index)}
+            >
+                <div className="flex items-center gap-3 sm:gap-4">
                 <img
-                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
-                  alt="Feature icon"
-                  src={feature.icon}
+                    className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
+                    alt="Feature icon"
+                    src={feature.icon}
                 />
                 <h3 className="font-bold text-white text-lg sm:text-xl lg:text-[22px] leading-6 sm:leading-7 font-['Open_Sans',Helvetica]">
-                  {feature.title}
+                    {feature.title}
                 </h3>
-              </div>
-              <p className="ml-9 sm:ml-11 lg:ml-12 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
+                </div>
+                <p className="ml-9 sm:ml-11 lg:ml-12 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
                 {feature.description}
-              </p>
+                </p>
             </div>
-          ))}
+            ))}
 
-          <Button
+            <Button
             variant="default"
             className="flex h-[40px] ml-[38px] gap-4  sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-6 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
-          >
-            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]">
-              See How Farmers Use the AI Chatbot
+            >
+            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]" onClick={handleCalendlyAppointment}>
+                See How Farmers Use the AI Chatbot
             </span>
-            
-          </Button>
+
+            </Button>
         </div>
       </div>
     </section>

@@ -1,5 +1,5 @@
 import { ArrowUpRightIcon } from "lucide-react";
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import {
@@ -49,6 +49,19 @@ export const InfoSection = (): JSX.Element => {
     fetchBlogs();
   }, []);
 
+  // --- FIX 1: New helper function to extract the first image URL from HTML content ---
+  const extractFirstImageUrl = (htmlContent: string, fallbackUrl: string): string => {
+    // This function requires a browser environment to work (uses document)
+    if (typeof window === 'undefined') return fallbackUrl;
+
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = htmlContent;
+    const firstImage = tempDiv.querySelector('img');
+    
+    // Return the src of the first image, or the fallback URL if no image is found
+    return firstImage?.src || fallbackUrl;
+  };
+
   // Helper function to strip HTML tags and get plain text
   const stripHtmlTags = (html: string): string => {
     const div = document.createElement('div');
@@ -56,11 +69,10 @@ export const InfoSection = (): JSX.Element => {
     return div.textContent || div.innerText || '';
   };
 
-  // Helper function to truncate text to exactly 3 lines
+  // Helper function to truncate text to approximately 3 lines
   const truncateToLines = (text: string, maxLines: number = 3): string => {
     const words = text.split(' ');
-    // Adjust words per line based on screen size
-    const wordsPerLine = window.innerWidth < 768 ? 8 : 12; // Less words per line on mobile
+    const wordsPerLine = window.innerWidth < 768 ? 8 : 12; 
     const maxWords = maxLines * wordsPerLine;
     
     if (words.length <= maxWords) return text;
@@ -71,7 +83,9 @@ export const InfoSection = (): JSX.Element => {
   const openBlogInNewPage = (blog: BlogData) => {
     const blogPageUrl = `/blog/${blog.id}`;
     
-    // Create a new window/tab with the blog content
+    // --- FIX 2: Use the helper function here as well for the opened blog page ---
+    const displayImage = extractFirstImageUrl(blog.content, blog.profilePic);
+    
     const newWindow = window.open('', '_blank');
     if (newWindow) {
       newWindow.document.write(`
@@ -90,7 +104,7 @@ export const InfoSection = (): JSX.Element => {
               color: #1f2937;
             }
             .prose p { margin-bottom: 1.25rem; }
-            .prose img { margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
+            .prose img { max-width: 100%; height: auto; margin: 1.5rem 0; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
             .prose code { 
               background: #f1f5f9; 
               padding: 0.125rem 0.375rem; 
@@ -116,19 +130,15 @@ export const InfoSection = (): JSX.Element => {
             .card-shadow {
               box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             }
-            .author-badge {
-              background: linear-gradient(135deg, #059669 0%, #047857 100%);
-            }
           </style>
         </head>
         <body class="gradient-bg min-h-screen">
           <div class="max-w-4xl mx-auto px-6 py-8">
-            <!-- Header -->
             <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-8 mb-8">
               <div class="flex items-start gap-8">
                 <div class="relative">
                   <img 
-                    src="${blog.profilePic}" 
+                    src="${displayImage}" 
                     alt="${blog.authorName}"
                     class="w-24 h-24 rounded-2xl object-cover border-4 border-green-50"
                   />
@@ -139,8 +149,7 @@ export const InfoSection = (): JSX.Element => {
                   </div>
                 </div>
                 <div class="flex-1">
-
-                  <h2 class="text-xl font-semibold text-green-700 mb-4"> ${blog.authorName}</h2>
+                  <h2 class="text-xl font-semibold text-green-700 mb-4">${blog.authorName}</h2>
                   <div class="flex flex-wrap gap-3">
                     <span class="bg-green-50 text-green-700 px-4 py-2 rounded-full text-sm font-medium border border-green-200">
                       🌱 ${blog.cropName}
@@ -149,35 +158,22 @@ export const InfoSection = (): JSX.Element => {
                       🚜 ${blog.farmSize}
                     </span>
                     <span class="bg-gray-50 text-gray-700 px-4 py-2 rounded-full text-sm font-medium border border-gray-200">
-                      📅 ${new Date(blog.createdAt).toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })}
+                      📅 ${new Date(blog.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                     </span>
                   </div>
                 </div>
               </div>
             </div>
             
-            <!-- Content -->
             <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-8 mb-8">
               <div class="prose prose-lg max-w-none leading-relaxed">
                 ${blog.content}
               </div>
             </div>
             
-            <!-- Footer -->
             <div class="text-center">
               <div class="bg-white rounded-2xl card-shadow border border-gray-100 p-6 mb-6">
-               
                 <div class="flex justify-center gap-4">
-                  <button 
-                    onclick="window.print()" 
-                    class="bg-gray-100 hover:bg-gray-200 text-gray-700 px-6 py-3 rounded-xl transition-all duration-200 font-medium flex items-center gap-2"
-                  >
-                    
-                  </button>
                   <button 
                     onclick="window.close()" 
                     class="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 rounded-xl transition-all duration-200 font-medium shadow-lg hover:shadow-xl"
@@ -196,12 +192,8 @@ export const InfoSection = (): JSX.Element => {
   };
 
   useEffect(() => {
-    if (!api) {
-      return;
-    }
-
+    if (!api) return;
     setCurrentSlide(api.selectedScrollSnap());
-
     api.on("select", () => {
       setCurrentSlide(api.selectedScrollSnap());
     });
@@ -226,6 +218,9 @@ export const InfoSection = (): JSX.Element => {
             const truncatedContent = truncateToLines(plainTextContent, 3);
             const needsReadMore = plainTextContent.length > truncatedContent.length;
             
+            // --- FIX 3: Call the helper function to get the correct image URL ---
+            const cardImageUrl = extractFirstImageUrl(blog.content, blog.profilePic);
+            
             return (
               <CarouselItem key={blog.id} className={`pl-2 md:pl-4 basis-[85%] md:basis-[80%] transition-all duration-300 ${index !== currentSlide ? 'blur-sm opacity-60' : ''}`}>
                 <Card className="rounded-xl border border-solid border-[#edf4f1] shadow-[2px_2px_60px_4px_#0037141c] bg-white h-[450px] sm:h-[420px] lg:h-[380px]">
@@ -233,8 +228,8 @@ export const InfoSection = (): JSX.Element => {
                     <div className="relative lg:w-[263px] w-full lg:h-full h-[180px] sm:h-[200px] lg:p-[30px] p-[20px]">
                       <img
                         className="w-full h-full object-cover rounded-lg"
-                        alt={`${blog.authorName} profile`}
-                        src={blog.profilePic}
+                        alt={blog.title} // Use blog title for better alt text
+                        src={cardImageUrl} // Use the extracted image URL
                         loading="eager"
                       />
                     </div>
