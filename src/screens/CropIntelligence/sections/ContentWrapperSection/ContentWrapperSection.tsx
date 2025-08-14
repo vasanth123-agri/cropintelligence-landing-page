@@ -3,8 +3,8 @@ import { Button } from "../../../../components/ui/button";
 import { Card, CardContent } from "../../../../components/ui/card";
 import { ScrollArea } from "../../../../components/ui/scroll-area";
 
-import icontwo from "../../../../assets/icontwo.svg"
-import iconthree from "../../../../assets/iconthree.svg"
+import icontwo from "../../../../assets/icontwo.svg";
+import iconthree from "../../../../assets/iconthree.svg";
 import iconone from "../../../../assets/iconone.svg";
 
 import chatboticon from "../../../../assets/chatboticon.svg";
@@ -12,10 +12,10 @@ import chatbackbutton from "../../../../assets/chatbackbutton.svg";
 
 import chaticonone from "../../../../assets/chaticonone.svg";
 import chaticontwo from "../../../../assets/chaticontwo.svg";
-import chaticondownload from "../../../../assets/chaticondownload.svg"
-import chatgif from "../../../../assets/Agri-Inverse---Chat-Bot---GIF-1.gif"
-import chattwogif from "../../../../assets/Agri-Chatbot-GIF-1.gif"
-import chatthreegif from "../../../../assets/Agri-Chatbot-GIF-2.gif"
+import chaticondownload from "../../../../assets/chaticondownload.svg";
+import chatgif from "../../../../assets/Agri-Inverse---Chat-Bot---GIF-1.gif";
+import chattwogif from "../../../../assets/Agri-Chatbot-GIF-1.gif";
+import chatthreegif from "../../../../assets/Agri-Chatbot-GIF-2.gif";
 
 export const ContentWrapperSection = (): JSX.Element => {
   // Feature data for the left side
@@ -44,9 +44,7 @@ export const ContentWrapperSection = (): JSX.Element => {
   ];
 
   const [activeGif, setActiveGif] = useState<string | null>(features[0].gif);
-  // --- FIX 1: Add state to track the active feature index ---
   const [activeIndex, setActiveIndex] = useState<number>(0);
-
 
   // Chat suggestion buttons data
   const topSuggestions = [
@@ -66,15 +64,14 @@ export const ContentWrapperSection = (): JSX.Element => {
 
   const payslipSuggestions = ["Download Payslip", "View Detailed Breakdown"];
 
-  // --- FIX 2: Create a handler to update both GIF and active index ---
   const handleFeatureClick = (gif: string, index: number) => {
     setActiveGif(gif);
     setActiveIndex(index);
   };
 
-   const handleCalendlyAppointment = () => {
+  const handleCalendlyAppointment = () => {
     window.open("https://calendly.com/jeydev007/crop-intelligence-meeting", "_blank");
-  }
+  };
 
   return (
     <section className="relative w-full py-8 sm:py-12 lg:py-16 px-4 sm:px-8 lg:px-20 bg-[#006837] rounded-[20px] sm:rounded-[25px] lg:rounded-[30px] overflow-hidden">
@@ -86,21 +83,15 @@ export const ContentWrapperSection = (): JSX.Element => {
         {/* Mobile/Tablet: Chat interface first */}
         <Card className="w-full lg:w-[558px] h-[400px] sm:h-[440px] lg:h-[480px] bg-[#f1f4f3] rounded-xl lg:rounded-2xl border-2 border-solid border-[#dce4e2] overflow-hidden mx-auto lg:mx-0 relative lg:order-2 order-1">
           <CardContent className="p-0 h-full">
-
             {activeGif ? (
               <div className="relative w-full h-full">
-                <img src={activeGif} alt="Chat animation" className="w-full h-full object-fill" style={{ borderRadius: 'inherit' }} />
-                <button
-                  onClick={() => setActiveGif(null)}
-                  className="absolute top-4 left-4 p-2 bg-black/30 rounded-full hover:bg-black/50 transition-colors z-10"
-                  aria-label="Back to chat"
-                >
-                    <img
-                        className="w-[20px] h-[20px]"
-                        alt="Back to chat"
-                        src={chatbackbutton}
-                    />
-                </button>
+                {/* --- FIX: Added 'object-top' to align the GIF to the top of the container --- */}
+                <img
+                  src={activeGif}
+                  alt="Chat animation"
+                  className="w-full h-full object-cover object-top"
+                  style={{ borderRadius: "inherit" }}
+                />
               </div>
             ) : (
               <>
@@ -184,7 +175,8 @@ export const ContentWrapperSection = (): JSX.Element => {
                       <div className="relative max-w-[284px]">
                         <div className="bg-[#184d49] p-[16.38px] rounded-[8.94px_8.94px_8.94px_1.49px]">
                           <div className="font-['Urbanist',Helvetica] font-semibold text-white text-[14.9px] leading-[20.8px]">
-                            Alright! Here are a few things I can help with payroll
+                            Alright! Here are a few things I can help with
+                            payroll
                           </div>
                         </div>
                         <div className="absolute flex flex-col gap-2 top-[11px] right-[-32px]">
@@ -240,11 +232,12 @@ export const ContentWrapperSection = (): JSX.Element => {
                         <div className="bg-[#184d49] p-[16.38px] rounded-[8.94px_8.94px_8.94px_1.49px]">
                           <div className="font-['Urbanist',Helvetica] font-semibold text-white text-[14.9px] leading-[20.8px]">
                             Sure! Here's a quick summary of your salary for this
-                            month. Your base pay stands at ₹25,000. You've earned an
-                            additional ₹2,000 in incentives, and there's a deduction
-                            of ₹500 due to late attendance. That brings your total
-                            net pay to ₹26,500. Let me know if you'd like a detailed
-                            breakdown or to download your payslip.
+                            month. Your base pay stands at ₹25,000. You've
+                            earned an additional ₹2,000 in incentives, and
+                            there's a deduction of ₹500 due to late attendance.
+                            That brings your total net pay to ₹26,500. Let me
+                            know if you'd like a detailed breakdown or to
+                            download your payslip.
                           </div>
                         </div>
                         <div className="absolute flex flex-col gap-2 top-[12px] right-[-32px]">
@@ -299,8 +292,8 @@ export const ContentWrapperSection = (): JSX.Element => {
                       <div className="relative max-w-[354px]">
                         <div className="bg-[#184d49] p-[16.38px] rounded-[8.94px_8.94px_8.94px_1.49px]">
                           <div className="font-['Urbanist',Helvetica] font-semibold text-white text-[14.9px] leading-[20.8px]">
-                            Here you go! Tap below to download your payslip for
-                            April.
+                            Here you go! Tap below to download your payslip
+                            for April.
                           </div>
                         </div>
                         <div className="absolute flex flex-col gap-2 top-[12px] right-[-32px]">
@@ -360,42 +353,41 @@ export const ContentWrapperSection = (): JSX.Element => {
 
         {/* Features - appears after chat on mobile/tablet, before on desktop */}
         <div className="flex flex-col space-y-4 w-full lg:w-1/2 lg:order-1 order-2">
-            {/* --- FIX 3: Mapped features with new styling for active and hover states --- */}
-            {features.map((feature, index) => (
+          {features.map((feature, index) => (
             <div
-                key={index}
-                className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${
+              key={index}
+              className={`p-4 rounded-lg border cursor-pointer transition-all duration-300 ${
                 activeIndex === index
-                    ? 'bg-white/10 border-white/40' // Style for the active feature
-                    : 'border-transparent hover:bg-white/5 hover:border-white/20' // Style for inactive features on hover
-                }`}
-                onClick={() => handleFeatureClick(feature.gif, index)}
+                  ? "bg-white/10 border-white/40" // Style for the active feature
+                  : "border-transparent hover:bg-white/5 hover:border-white/20" // Style for inactive features on hover
+              }`}
+              onClick={() => handleFeatureClick(feature.gif, index)}
             >
-                <div className="flex items-center gap-3 sm:gap-4">
+              <div className="flex items-center gap-3 sm:gap-4">
                 <img
-                    className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
-                    alt="Feature icon"
-                    src={feature.icon}
+                  className="w-6 h-6 sm:w-7 sm:h-7 lg:w-4 lg:h-8"
+                  alt="Feature icon"
+                  src={feature.icon}
                 />
                 <h3 className="font-bold text-white text-lg sm:text-xl lg:text-[22px] leading-6 sm:leading-7 font-['Open_Sans',Helvetica]">
-                    {feature.title}
+                  {feature.title}
                 </h3>
-                </div>
-                <p className="ml-9 sm:ml-11 lg:ml-12 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
+              </div>
+              <p className="ml-9 sm:ml-11 lg:ml-12 text-[#e9e9e9] text-sm sm:text-base lg:text-lg leading-6 sm:leading-7 font-['Open_Sans',Helvetica] font-normal">
                 {feature.description}
-                </p>
+              </p>
             </div>
-            ))}
+          ))}
 
-            <Button
+          <Button
             variant="default"
-            className="flex h-[40px] ml-[38px] gap-4  sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-6 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
-            >
-            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]" onClick={handleCalendlyAppointment}>
-                See How Farmers Use the AI Chatbot
+            className="flex h-[40px] ml-[38px] gap-4  sm:gap-4 lg:gap-[19px] bg-white text-[#006837] rounded-lg w-fit px-6 sm:px-5 py-3 sm:py-4 mt-6 sm:mt-7 lg:mt-8"
+            onClick={handleCalendlyAppointment}
+          >
+            <span className="font-semibold text-sm sm:text-base font-['Open_Sans',Helvetica]">
+              See How Farmers Use the AI Chatbot
             </span>
-
-            </Button>
+          </Button>
         </div>
       </div>
     </section>

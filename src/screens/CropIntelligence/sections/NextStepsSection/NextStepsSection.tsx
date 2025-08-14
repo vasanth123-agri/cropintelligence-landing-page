@@ -117,16 +117,19 @@ export const NextStepsSection = (): JSX.Element => {
                 </p>
               </div>
 
-              {/* Right column: device GIF only (desktop) */}
-              <div className="hidden lg:flex w-full lg:w-[542px] items-start justify-end">
+              {/* MODIFICATION START: Right column structure updated to include text underneath */}
+              <div className="hidden lg:flex flex-col items-center w-full lg:w-[542px]">
                 <img src={device} alt="Device demo" className="max-w-[520px] max-h-[520px] w-auto h-auto object-contain select-none pointer-events-none" loading="eager" />
+                <p className="[font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-2xl text-center leading-9 mt-6">
+                  We helping you boost yields, reduce inputs and grow smarter.
+                </p>
               </div>
+              {/* MODIFICATION END */}
+
             </div>
 
-            {/* Footer text */}
-            <div className="text-center lg:absolute lg:h-[72px] lg:bottom-[59px] lg:left-[661px] [font-family:'Jost',Helvetica] font-medium italic text-[#4f4f4f] text-base sm:text-lg lg:text-2xl text-center tracking-[0] leading-6 sm:leading-7 lg:leading-9  lg:mt-0  lg:px-0">
-              We helping you boost yields, reduce inputs and grow smarter.
-            </div>
+            {/* MODIFICATION: The original absolutely positioned footer text has been removed from here */}
+
           </div>
         </div>
       </div>
