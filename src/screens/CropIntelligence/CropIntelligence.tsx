@@ -17,14 +17,14 @@ export const CropIntelligence = (): JSX.Element => {
 
   return (
     <div className="bg-transparent flex flex-row justify-center w-full">
-      <div className="overflow-hidden w-full max-w-[1440px] relative">
+      <div className="overflow-hidden w-full  relative">
         {/* Announcement Ticker */}
         
 
-        {/* Contact Bar */}
+        {/* Contacst Bar */}
         <div className="w-full h-[48px] sm:h-[52px] lg:h-[57px] bg-[#006837]">
-          <div className="container mx-auto h-full flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 lg:px-8 gap-2 sm:gap-0">
-            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 lg:gap-8">
+          <div className="w-full h-full flex flex-col sm:flex-row justify-start sm:justify-between items-start sm:items-center px-4 sm:px-6 lg:px-8 gap-2 sm:gap-0 py-2 sm:py-0">
+            <div className="flex flex-col sm:flex-row items-start gap-1 sm:gap-4 lg:gap-8">
               <div className="flex items-center gap-2">
                 <PhoneIcon className="w-3 h-3 sm:w-4 sm:h-4 text-[#e8f5e9]" />
                 <span className="font-['Open_Sans',Helvetica] font-normal text-white text-sm sm:text-base leading-5 sm:leading-6">

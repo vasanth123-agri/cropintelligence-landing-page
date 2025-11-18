@@ -1,5 +1,5 @@
 import { ArrowRight } from "lucide-react";
-import device from "../../../../assets/devic.jpeg"
+import device from "../../../../assets/mainbg.jpg"
 export const FeatureHighlightSection = (): JSX.Element => {
 
    const handleCalendlyAppointment = () => {
@@ -13,6 +13,7 @@ export const FeatureHighlightSection = (): JSX.Element => {
           src={device} 
           alt="Device background" 
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ transform: 'rotate(+1deg) scale(1.1)' }}
           loading="eager"
         />
         
